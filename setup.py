@@ -23,7 +23,8 @@ tests_require = [
     'coverage',
     'tox',
     'black',
-    'flake8'
+    'flake8',
+    'sybil',
 ]
 
 setup(
