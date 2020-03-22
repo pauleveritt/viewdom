@@ -1,0 +1,14 @@
+graft src
+graft tests
+graft docs
+prune docs/_build
+
+include README.rst
+include CHANGES.rst
+include LICENSE.txt
+
+include pyproject.toml setup.cfg
+include .coveragerc .flake8
+include tox.ini .travis.yml appveyor.yml readthedocs.yml
+
+recursive-exclude * __pycache__ *.py[cod]

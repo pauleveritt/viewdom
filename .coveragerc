@@ -1,0 +1,12 @@
+[run]
+source =
+    viewdom
+
+[paths]
+source =
+    src/viewdom
+    */site-packages/viewdom
+
+[report]
+show_missing = true
+precision = 2
