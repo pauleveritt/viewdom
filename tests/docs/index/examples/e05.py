@@ -13,3 +13,4 @@ result = render(html('''
      ] }
   </li>
 '''))
+# '<ul title="Hello"><li>World</li><li>Universe</li></ul>'

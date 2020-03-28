@@ -16,6 +16,10 @@ Installation follows the normal Python packaging:
 
   $ pip install viewdom
 
+.. note::
+    ``viewdom`` depends on ``htm`` which depends on ``tagged``.
+    No other dependencies, although some of the optional ``viewdom`` integrations pull in other packages.
+
 Quick Examples
 ==============
 
@@ -55,22 +59,11 @@ Reusable components and subcomponents, passing props and children:
     :start-after: start-after
 
 
-``viewdom`` depends on ``htm`` which depends on ``tagged``.
-No other dependencies, although some of the optional ``viewdom`` integrations pull in other packages.
-
 .. toctree::
-    :maxdepth: 2
-    :caption: Contents:
+    :hidden:
 
     what
     why
     how
     usage/index
     integrations/index
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

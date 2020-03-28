@@ -11,7 +11,9 @@ changes = readfile('CHANGES.rst')
 
 requires = ['htm']
 
-docs_require = ['Sphinx', 'sphinx_rtd_theme']
+docs_require = [
+    'Sphinx',
+]
 
 tests_require = [
     'pytest',

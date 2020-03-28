@@ -19,3 +19,4 @@ result = render(html('''
   <h1>{title}</h1>
   <{TodoList} todos={todos} />
 '''))
+# '<h1>My Todos</h1><ul><li>first</li></ul>'
