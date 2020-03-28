@@ -1,4 +1,4 @@
-from viewdom.h import html, render
+from viewdom import html, render
 
 expected = '<div>Hello World</div>'
 

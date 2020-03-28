@@ -1,8 +1,6 @@
 from viewdom import html, render
 
-expected = '<h1>My Todos</h1><ul><li>first</li></ul>'
 
-# start-after
 title = 'My Todos'
 todos = ['first']
 
@@ -20,3 +18,5 @@ result = render(html('''
   <{TodoList} todos={todos} />
 '''))
 # '<h1>My Todos</h1><ul><li>first</li></ul>'
+# end-before
+expected = '<h1>My Todos</h1><ul><li>first</li></ul>'

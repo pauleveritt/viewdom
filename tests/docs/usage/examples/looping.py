@@ -1,8 +1,5 @@
 from viewdom import html, render
 
-expected = '<ul title="Hello"><li>World</li><li>Universe</li></ul>'
-
-# start-after
 message = 'Hello'
 names = ['World', 'Universe']
 result = render(html('''
@@ -14,3 +11,5 @@ result = render(html('''
   </li>
 '''))
 # '<ul title="Hello"><li>World</li><li>Universe</li></ul>'
+# end-before
+expected = '<ul title="Hello"><li>World</li><li>Universe</li></ul>'

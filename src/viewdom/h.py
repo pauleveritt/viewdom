@@ -21,10 +21,6 @@ def flatten(value):
 
 
 def relaxed_call(callable_, **kwargs):
-    # Hackety-hack-hack warning!
-    # Call callable_ with the given keyword arguments, but
-    # only those that callable_ expects - ignore others.
-
     sig = signature(callable_)
     parameters = sig.parameters
 
