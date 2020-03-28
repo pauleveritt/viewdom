@@ -1,6 +1,6 @@
 import pytest
 
-from .examples import e01, e01a, e02, e03, e04, e05, e06
+from .examples import e01, e01a, e02, e03, e04, e05, e06, e07
 
 
 @pytest.mark.parametrize(
@@ -13,6 +13,7 @@ from .examples import e01, e01a, e02, e03, e04, e05, e06
         e04,
         e05,
         e06,
+        e07
     ]
 )
 def test_docs_index(target):

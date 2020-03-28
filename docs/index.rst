@@ -58,6 +58,12 @@ Reusable components and subcomponents, passing props and children:
 .. literalinclude:: ../tests/docs/index/examples/e06.py
     :start-after: start-after
 
+Tired of passing props down a deep tree and want something like React context/hooks?
+
+.. literalinclude:: ../tests/docs/index/examples/e07.py
+    :start-after: start-after
+
+
 
 .. toctree::
     :hidden:
