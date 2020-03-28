@@ -1,16 +1,15 @@
 from viewdom.h import html, render
 
-# start-after
+expected = '<ul title="Hello"><li>World</li><li>Universe</li></ul>'
 
+# start-after
 message = 'Hello'
 names = ['World', 'Universe']
-
-vdom05 = html("""
+result = render(html('''
   <ul title="{message}">
     {[
         html('<li>{name}</li>')
         for name in names
      ] }
   </li>
-""")
-result05 = render(vdom05)
+'''))

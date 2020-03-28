@@ -24,7 +24,6 @@ tests_require = [
     'tox',
     'black',
     'flake8',
-    'sybil',
 ]
 
 setup(

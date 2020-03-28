@@ -1,0 +1,5 @@
+==============
+Static Strings
+==============
+
+Something.
