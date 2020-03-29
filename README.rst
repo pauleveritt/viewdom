@@ -31,12 +31,14 @@ Quick Examples
 Use ``htm`` to generate a VDOM, then ``render`` to convert to a string:
 
 .. code-block:: python
+
     result = render(html('''<div>Hello World</div>'''))
     # '<div>Hello World</div>'
 
 If you'd like, you can split those into two steps:
 
 .. code-block:: python
+
     vdom = html('''<div>Hello World</div>''')
     result = render(vdom)
     # '<div>Hello World</div>'
@@ -44,6 +46,7 @@ If you'd like, you can split those into two steps:
 Insert variables from the local or global scope:
 
 .. code-block:: python
+
     name = 'viewdom'
     result = render(html('<div>Hello {name}</div>'))
     # '<div>Hello viewdom</div>'
@@ -51,14 +54,15 @@ Insert variables from the local or global scope:
 Expressions aren't some special language, it's just Python in inside curly braces:
 
 .. code-block:: python
+
     name = 'viewdom'
     result = render(html('<div>Hello {name.upper()}</div>'))
     # '<div>Hello VIEWDOM</div>'
-```
 
 Rendering something conditionally is also "just Python":
 
 .. code-block:: python
+
     message = 'Say Howdy'
     not_message = 'So Sad'
     show_message = True
@@ -71,6 +75,7 @@ Rendering something conditionally is also "just Python":
 Looping? Yes, "just Python":
 
 .. code-block:: python
+
     message = 'Hello'
     names = ['World', 'Universe']
     result = render(html('''
@@ -85,8 +90,9 @@ Looping? Yes, "just Python":
 Reusable components and subcomponents, passing props and children:
 
 .. code-block:: python
-        title = 'My Todos'
-        todos = ['first']
+
+    title = 'My Todos'
+    todos = ['first']
 
 
     def Todo(label):
@@ -106,6 +112,7 @@ Reusable components and subcomponents, passing props and children:
 Tired of passing props down a deep tree and want something like React context/hooks?
 
 .. code-block:: python
+
     title = 'My Todos'
     todos = ['first']
 

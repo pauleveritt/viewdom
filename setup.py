@@ -33,7 +33,7 @@ setup(
     description=(
         'View layer for Python VDOMs'
     ),
-    version='0.0.1',
+    version='0.1.0',
     long_description=readme + '\n\n' + changes,
     long_description_content_type='text/x-rst',
     author='Paul Everitt',
