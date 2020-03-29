@@ -5,7 +5,7 @@ Usage
 Let's take a look at some common templating patterns, implemented in ``viewdom``.
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :caption: Contents:
 
     static_string
