@@ -5,6 +5,6 @@ vdom = html('''<div>Hello <span>World<em>!</em></span></div>''')
 # children=['World', H(tag='em', props={}, children=['!'])])])
 
 result = render(vdom)
-# '<div>Hello World</div>'
+# '<div>Hello <span>World<em>!</em></span></div>'
 # end-before
 expected = '<div>Hello <span>World<em>!</em></span></div>'

@@ -3,14 +3,14 @@ viewdom: View Layer for Python VDOMs
 
 ``viewdom`` brings modern frontend templating patterns to Python:
 
-- `tagged <https://github.com/jviide/tagged>`_ to have language-centered templating
-- `htm <https://github.com/jviide/htm.py>`_ to generate virtual DOM structures from a template run
+- `tagged <https://github.com/jviide/tagged>`_ to have language-centered templating (like JS tagged templates)
+- `htm <https://github.com/jviide/htm.py>`_ to generate virtual DOM structures from a template run (like the ``htm`` JS package)
 - ``viewdom`` to render a VDOM to a markup string, along with other modern machinery
 
 Installation
 ============
 
-Installation follows the normal Python packaging:
+Installation follows the normal Python packaging approach:
 
 .. code-block:: bash
 
@@ -66,7 +66,7 @@ Tired of passing props down a deep tree and want something like React context/ho
 Acknowledgments
 ===============
 
-The idea and code for ``viewdom`` -- the rendering, the idea of a theadlocal context, obviously ``tagged`` and ``htm`` -- come from `Joachim Viide <https://github.com/jviide>`_.
+The idea and code for ``viewdom`` -- the rendering, the idea of a theadlocal context, obviously ``tagged`` and ``htm``... essentially everything -- come from `Joachim Viide <https://github.com/jviide>`_.
 
 .. toctree::
     :hidden:

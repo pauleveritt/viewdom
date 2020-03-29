@@ -1,22 +1,13 @@
 from viewdom import html, render
 
 
-title = 'My Todos'
-todos = ['first']
+def Heading():
+    return html('<h1>My Title</h1>')
 
 
-def Todo(label):
-    return html('<li>{label}</li>')
-
-
-def TodoList(todos):
-    return html('<ul>{[Todo(label) for label in todos]}</ul>')
-
-
-result = render(html('''
-  <h1>{title}</h1>
-  <{TodoList} todos={todos} />
-'''))
-# '<h1>My Todos</h1><ul><li>first</li></ul>'
+vdom = html('<{Heading} />')
+# H(tag=<function Heading at 0x10e77db80>, props={}, children=[])
+result = render(vdom)
+# '<h1>My Title</h1>'
 # end-before
-expected = '<h1>My Todos</h1><ul><li>first</li></ul>'
+expected = '<h1>My Title</h1>'

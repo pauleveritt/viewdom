@@ -5,9 +5,7 @@ from collections import namedtuple, ChainMap
 from collections.abc import Iterable, ByteString
 from inspect import signature, Parameter
 
-
 H = namedtuple("H", ["tag", "props", "children"])
-
 
 html = htm(H)
 

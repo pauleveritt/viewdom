@@ -1,12 +1,14 @@
-from viewdom import html, render
+from viewdom import html, render, use_context, Context
 
 
-def NavHeading(title):
+def NavHeading():
+    site = use_context('site')
+    title = site['title']
     return html('<h1>{title}</h1>')
 
 
-def Nav(site):
-    return html('<nav><{NavHeading} title={site["title"]}/></nav>')
+def Nav():
+    return html('<nav><{NavHeading}/></nav>')
 
 
 def PageHeading(title):
@@ -17,9 +19,9 @@ def Main(page):
     return html('<{PageHeading} title={page["title"]}/>')
 
 
-def App(site, page):
+def App(page):
     return html('''
-        <{Nav} site={site}/>
+        <{Nav}/>
         <{Main} page={page}/>
     ''')
 
@@ -29,7 +31,9 @@ def main():
     page = dict(title='My Page')
 
     return render(html('''
-        <{App} site={site} page={page} />
+        <{Context} site={site}>
+            <{App} page={page} />
+        <//>
 '''))
 
 

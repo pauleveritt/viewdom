@@ -52,3 +52,9 @@ Let's look at what more nesting would look like:
     :end-before: end-before
 
 The VDOM result in the comment stretches across multiple lines and shows the nested Python data structure of these VDOMs.
+
+The renderer also knows to collapse truthy-y values into simplified HTML attributes.
+Thus, instead of ``editable="1"`` you just get the attribute *name* without a *value*:
+
+.. literalinclude:: ../../tests/docs/usage/examples/static_stringE.py
+    :end-before: end-before

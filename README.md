@@ -5,8 +5,8 @@
 
 `viewdom` brings modern frontend templating patterns to Python:
 
-- [tagged](https://github.com/jviide/tagged) to have language-centered templating
-- [htm](https://github.com/jviide/htm.py) to generate virtual DOM structures from a template run
+- [tagged](https://github.com/jviide/tagged) to have language-centered templating (like JS tagged templates)
+- [htm](https://github.com/jviide/htm.py) to generate virtual DOM structures from a template run (like the `htm` JS package)
 - `viewdom` to render a VDOM to a markup string, along with other modern machinery
 
 # Installation
@@ -134,4 +134,4 @@ result = render(html('''
 
 # Acknowledgments
 
-The idea and code for `viewdom` -- the rendering, the idea of a theadlocal context, obviously `tagged` and `htm` -- come from [Joachim Viide](https://github.com/jviide).
+The idea and code for `viewdom` -- the rendering, the idea of a theadlocal context, obviously `tagged` and `htm`... essentially everything -- come from [Joachim Viide](https://github.com/jviide).
