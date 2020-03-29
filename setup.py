@@ -6,7 +6,7 @@ def readfile(name):
         return f.read()
 
 
-readme = readfile('README.md')
+readme = readfile('README.rst')
 changes = readfile('CHANGES.rst')
 
 requires = ['htm']
