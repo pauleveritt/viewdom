@@ -12,3 +12,8 @@ f-strings can do looping in a Python expression using list comprehensions and so
 .. literalinclude:: ../../tests/docs/usage/examples/looping.py
     :end-before: end-before
 
+You could also move the generation of the items out of the "parent" template, then use that VDOM result in the next template:
+
+.. literalinclude:: ../../tests/docs/usage/examples/loopingA.py
+    :end-before: end-before
+
