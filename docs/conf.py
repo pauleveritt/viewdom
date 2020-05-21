@@ -13,6 +13,8 @@ release = '0.0.1'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx.ext.autodoc',
+    'myst_parser',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -35,7 +37,8 @@ html_static_path = ['_static']
 html_theme_options = dict(
     extra_navbar='',
     extra_footer='Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>.',
-    repository_url='https://github.com/pauleveritt/viewdom'
+    repository_url='https://github.com/pauleveritt/viewdom',
+    expand_sections= ['usage/index']
 )
 html_css_files = [
     'custom.css',
