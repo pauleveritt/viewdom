@@ -8,9 +8,7 @@ from inspect import signature, Parameter
 H = namedtuple("H", ["tag", "props", "children"])
 
 html = htm(H)
-html.__doc__ = '''
-A function that converts a 
-'''
+
 
 def flatten(value):
     if isinstance(value, Iterable) and not isinstance(value, (H, str, ByteString)):
