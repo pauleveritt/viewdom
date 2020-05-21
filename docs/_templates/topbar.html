@@ -1,0 +1,46 @@
+<div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+                    class="fas fa-download"></i></button>
+
+            {% if page_source_suffix %}
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                {% if ipynb_source %}<a class="dropdown-buttons" href="{{ pathto('_sources', 1) }}/{{ ipynb_source }}">
+                <button type="button" class="btn btn-secondary topbarbtn" title="Download notebook file"
+                        data-toggle="tooltip" data-placement="left">.ipynb
+                </button>
+            </a>{% endif %}
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="{{ pathto('_sources', 1) }}/{{ sourcename }}">
+                    <button type="button" class="btn btn-secondary topbarbtn" title="Download source file"
+                            data-toggle="tooltip" data-placement="left">{{ page_source_suffix }}
+                    </button>
+                </a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                        onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf
+                </button>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Edit this page -->
+        {% if theme_use_edit_page_button and github_repo %}<a class="edit-button" href="{{ get_edit_url() }}">
+        <button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i></button>
+    </a>{% endif %}
+
+        <a class="full-screen-button" href="{{theme_repository_url}}">
+            <button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom"
+                    title="GitHub Repo"><i class="fab fa-github"></i></button>
+        </a>
+
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        {%- include "docs-toc.html" %}
+    </div>
+</div>

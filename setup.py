@@ -13,6 +13,7 @@ requires = ['htm']
 
 docs_require = [
     'Sphinx',
+    'sphinx-book-theme'
 ]
 
 tests_require = [

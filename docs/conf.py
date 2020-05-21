@@ -2,7 +2,7 @@
 
 project = 'viewdom'
 copyright = '2020, Paul Everitt <pauleveritt@me.com>'
-author = 'Paul Everitt <pauleveritt@me.com>'
+# author = 'Paul Everitt <pauleveritt@me.com>'
 
 # The full version, including alpha/beta/rc tags
 release = '0.0.1'
@@ -17,7 +17,7 @@ extensions = [
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
-html_theme = 'alabaster'
+html_theme = 'sphinx_book_theme'
 
 # Register the theme as an extension to generate a sitemap.xml
 
@@ -32,3 +32,11 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+html_theme_options = dict(
+    extra_navbar='',
+    extra_footer='Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>',
+    repository_url='https://github.com/pauleveritt/viewdom'
+)
+html_css_files = [
+    'custom.css',
+]
