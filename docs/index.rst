@@ -17,8 +17,7 @@ Installation follows the normal Python packaging approach:
   $ pip install viewdom
 
 .. note::
-    ``viewdom`` depends on ``htm`` which depends on ``tagged``.
-    No other dependencies, although some of the optional ``viewdom`` :doc:`integrations <./integrations/index>` pull in other packages.
+    ``viewdom`` depends on ``htm`` which depends on ``tagged`` which depends on nothing.
 
 Quick Examples
 ==============
@@ -75,4 +74,3 @@ The idea and code for ``viewdom`` -- the rendering, the idea of a theadlocal con
     why
     how
     usage/index
-    integrations/index
