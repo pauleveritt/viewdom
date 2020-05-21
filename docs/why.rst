@@ -53,16 +53,58 @@ Less Magical
 
 Open a template in Sphinx or a web app and try to guess where the variables come from.
 Perhaps the framework has a "view" thingy that uses that template (and doesn't have any magic to get the template name) and maybe the symbol will be there.
-Or not...perhaps it is in one of many layers of global context.
+Or not...perhaps it is in one of many layers of global "context".
 
+"Explicit is better than implicit".
+We'd like that for "templating", and we'd like to return to language constructs for symbols, expressions, scopes, conditionals, looping, and the like.
+When we do so, we can then let Python teaching and Python tooling help us be more productive in large projects.
 
+As an example, wouldn't it be great if `mypy` worked on values and expressions in "templates"?
 
-- More Pythonic (symbols, expressions)
-- Less magical
-- Performance
-- Matches some modern frontend patterns
-- Isolation
-- Different ways to get state in
-- Fresh thinking
-- Easier to control/extend the rendering pipeline
+Modern Web
+==========
+
+Modern frontends have set the bar much higher.
+Although they do so with toolchain and complexity issues, they embrace web "applications" that try to rival native app experiences.
+In particular, React's popularizing of "virtual DOMs" for high-performance dynamic updating has set an expectation of seamless site transitions.
+Also, the `PRPL pattern <https://web.dev/apply-instant-loading-with-prpl/>` discusses a set of techniques for optimized web performance.
+
+VDOMs, generated on the server and sent to the client, can be a way to provide a server-driven experience that still feels like the "modern web".
+
+Modern Patterns
+===============
+
+The majority of modern web frontends have adopted a set of similar patterns:
+
+- Lots of small, encapsulated components that combine into larger units
+- "Props" that get passed in
+
+It would be nice to learn from such patterns and present similar techniques for Python web development.
+
+Encapsulation
+=============
+
+Look at a pixel on the screen of a Python web app.
+What drew it?
+With current templating approaches and "convention over configuration" with magically-named directories/files/"slots", it can be a hard question to answer.
+
+And that's just for the markup.
+What was the scope for that template?
+Good luck finding that.
+In the interests of a magically wonderful first five minutes experience, current templating piles stuff into a single garbage heap of scope.
+Your first five minutes of hello world are great, but the next five years of real-world, not so much.
+
+With components, nothing gets into the "template" that isn't put there by the component's scope.
+Modern web systems then come up with a number of techniques -- props, state trees, context and hooks, dependency injection -- to facilitate getting state into the component.
+
+Customizing
+===========
+
+Let's say you want to add something to a Sphinx sidebar, but in the space in between each panel.
+Sphinx makes it easy override the sidebar template, but it has a very big surface area.
+You've now forked a mini-universe.
+And you are also relying on an implicit soup of state.
+
+With a smarter component approach, you have much smaller units to change and you can register overrides for replacing a unit.
+
 

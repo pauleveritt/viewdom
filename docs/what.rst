@@ -31,7 +31,7 @@ Rendering
 =========
 
 We need a way to serialize a VDOM to a string.
-Along the way, we need a way to evaluate components and subcomponents along the way, getting them to generate a VDOM, and serializing them to a string.
+Along the way, we need a way to evaluate components and subcomponents, getting them to generate a VDOM, and serializing them to a string.
 
 In JavaScript, this part is done by machinery in the toolchain.
 It's also tied to DOM diffing and patching, to very quickly re-render just the parts that change.

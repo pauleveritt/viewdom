@@ -65,7 +65,7 @@ Tired of passing props down a deep tree and want something like React context/ho
 Acknowledgments
 ===============
 
-The idea and code for ``viewdom`` -- the rendering, the idea of a theadlocal context, obviously ``tagged`` and ``htm``... essentially everything -- come from `Joachim Viide <https://github.com/jviide>`_.
+The idea and code for ``viewdom`` -- the rendering, the idea of a theadlocal context, obviously ``tagged`` and ``htm`` --- essentially everything -- come from `Joachim Viide <https://github.com/jviide>`_.
 
 .. toctree::
     :hidden:
