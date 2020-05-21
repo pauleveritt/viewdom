@@ -9,7 +9,7 @@ def readfile(name):
 readme = readfile('README.rst')
 changes = readfile('CHANGES.rst')
 
-requires = ['htm']
+requires = ['htm', 'MarkupSafe']
 
 docs_require = [
     'Sphinx',

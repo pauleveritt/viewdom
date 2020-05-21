@@ -1,9 +1,10 @@
 import threading
-from htm import htm
-from html import escape as _escape
 from collections import namedtuple, ChainMap
 from collections.abc import Iterable, ByteString
 from inspect import signature, Parameter
+
+from markupsafe import escape
+from htm import htm
 
 H = namedtuple("H", ["tag", "props", "children"])
 
@@ -60,9 +61,6 @@ def render_gen(value):
         elif item not in (True, False, None):
             yield escape(item)
 
-
-def escape(value):
-    return _escape(str(value))
 
 
 def encode_prop(k, v):

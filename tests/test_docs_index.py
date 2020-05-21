@@ -1,19 +1,32 @@
 import pytest
 
-from examples.index import e01, e01a, e02, e03, e04, e05, e06, e07
+from examples.index import (
+    render,
+    split,
+    scope,
+    expressions,
+    escaping,
+    prevent_escaping,
+    conditional,
+    looping,
+    components,
+    context,
+)
 
 
 @pytest.mark.parametrize(
     'target',
     [
-        e01,
-        e01a,
-        e02,
-        e03,
-        e04,
-        e05,
-        e06,
-        e07
+        render,
+        split,
+        scope,
+        expressions,
+        escaping,
+        prevent_escaping,
+        conditional,
+        looping,
+        components,
+        context
     ]
 )
 def test_docs_index(target):

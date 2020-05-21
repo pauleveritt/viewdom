@@ -22,42 +22,82 @@ Installation follows the normal Python packaging approach:
 
 Use `html` to generate a VDOM, then `render` to convert to a string:
 
-```{literalinclude} ../examples/index/e01.py
+```{literalinclude} ../examples/index/render.py
+---
+start-after: start-after
+---
 ```
 
 If you'd like, you can split those into two steps:
 
-```{literalinclude} ../examples/index/e01a.py
+```{literalinclude} ../examples/index/split.py
+---
+start-after: start-after
+---
 ```
 
 Insert variables from the local or global scope:
 
-```{literalinclude} ../examples/index/e02.py
+```{literalinclude} ../examples/index/scope.py
+---
+start-after: start-after
+---
 ```
 
 Expressions aren't some special language, it's just Python in inside curly braces:
 
-```{literalinclude} ../examples/index/e03.py
+```{literalinclude} ../examples/index/expressions.py
+---
+start-after: start-after
+---
+```
+
+Strings with markup get escaped by `markupsafe`:
+
+```{literalinclude} ../examples/index/escaping.py
+---
+start-after: start-after
+---
+```
+
+But you can flag a string as safe using `markupsafe.Markup`:
+
+```{literalinclude} ../examples/index/prevent_escaping.py
+---
+start-after: start-after
+---
 ```
 
 Rendering something conditionally is also "just Python":
 
-```{literalinclude} ../examples/index/e04.py
+```{literalinclude} ../examples/index/conditional.py
+---
+start-after: start-after
+---
 ```
 
 Looping? Yes, "just Python":
 
-```{literalinclude} ../examples/index/e05.py
+```{literalinclude} ../examples/index/looping.py
+---
+start-after: start-after
+---
 ```
 
 Reusable components and subcomponents, passing props and children:
 
-```{literalinclude} ../examples/index/e06.py
+```{literalinclude} ../examples/index/components.py
+---
+start-after: start-after
+---
 ```
 
 Tired of passing props down a deep tree and want something like React context/hooks?
 
-```{literalinclude} ../examples/index/e07.py
+```{literalinclude} ../examples/index/context.py
+---
+start-after: start-after
+---
 ```
 
 ## Acknowledgments
