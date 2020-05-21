@@ -34,7 +34,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 html_static_path = ['_static']
 html_theme_options = dict(
     extra_navbar='',
-    extra_footer='Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>',
+    extra_footer='Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>.',
     repository_url='https://github.com/pauleveritt/viewdom'
 )
 html_css_files = [
