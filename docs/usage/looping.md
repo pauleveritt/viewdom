@@ -7,13 +7,13 @@ You know what's more Python-like?
 Python.
 f-strings can do looping in a Python expression using list comprehensions and so can `viewdom`:
 
-```{literalinclude} ../../examples/looping.py
+```{literalinclude} ../../examples/usage/looping.py
 :end-before: end-before
 ```
 
 You could also move the generation of the items out of the "parent" template, then use that VDOM result in the next template:
 
-```{literalinclude} ../../examples/loopingA.py
+```{literalinclude} ../../examples/usage/loopingA.py
 :end-before: end-before
 ```
 

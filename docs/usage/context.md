@@ -5,7 +5,7 @@ It can be frustrating, not to mention brittle, to pass data all the way from the
 Intermediate components don't use the data.
 Why should they have to depend on them?
 
-```{literalinclude} ../../examples/context.py
+```{literalinclude} ../../examples/usage/context.py
 :end-before: end-before
 ```
 
@@ -17,7 +17,7 @@ React has addressed this with a number of technologies over the years, including
 `viewdom` has a similar "context" construct, where you can wrap a part of the component tree, shove values into the rendering, and pluck them out later on.
 We can use this to make `site` available anywhere in the tree:
 
-```{literalinclude} ../../examples/contextA.py
+```{literalinclude} ../../examples/usage/contextA.py
 :end-before: end-before
 ```
 

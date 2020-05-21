@@ -19,7 +19,7 @@ The whole mechanism, though, is quite magical:
 `viewdom`, courtesy of `htm.py`, makes this more Pythonic through the use of "components".
 Instead of some sorta-callable, a component is a normal Python callable -- e.g. a function -- with normal Python arguments and return values.
 
-```{literalinclude} ../../examples/components.py
+```{literalinclude} ../../examples/usage/components.py
 :end-before: end-before
 ```
 
@@ -27,7 +27,7 @@ As you can see from the comment, the VDOM now has something special in it: a VDO
 
 If your template has children inside that tag, your component can ask for them as an argument, then place them as a variable:
 
-```{literalinclude} ../../examples/componentsA.py
+```{literalinclude} ../../examples/usage/componentsA.py
 :end-before: end-before
 ```
 
@@ -38,19 +38,19 @@ Here we pass a `title` as an argument to `Heading`, using a simple HTML attribut
 
 The "prop" can also be a Python symbol, using curly braces as the attribute value:
 
-```{literalinclude} ../../examples/componentsC.py
+```{literalinclude} ../../examples/usage/componentsC.py
 :end-before: end-before
 ```
 
 That prop value can also be an in-scope variable:
 
-```{literalinclude} ../../examples/componentsD.py
+```{literalinclude} ../../examples/usage/componentsD.py
 :end-before: end-before
 ```
 
 Since this is typical function-argument stuff, you can have optional props through argument defaults:
 
-```{literalinclude} ../../examples/componentsE.py
+```{literalinclude} ../../examples/usage/componentsE.py
 :end-before: end-before
 ```
 
@@ -58,7 +58,7 @@ You can combined different props and arguments.
 In this case, `title` is a prop.
 `children` is another argument, but is provided automatically by `render`.
 
-```{literalinclude} ../../examples/componentsF.py
+```{literalinclude} ../../examples/usage/componentsF.py
 :end-before: end-before
 ```
 
@@ -66,14 +66,14 @@ You can also have components that act as generators.
 For example, imagine you have a todo list.
 There might be a lot of todos, so you want to generate them in a memory-efficient way:
 
-```{literalinclude} ../../examples/componentsG.py
+```{literalinclude} ../../examples/usage/componentsG.py
 :end-before: end-before
 ```
 
 Subcomponents are also feasible.
 They make up part of both the VDOM and the rendering:
 
-```{literalinclude} ../../examples/componentsH.py
+```{literalinclude} ../../examples/usage/componentsH.py
 :end-before: end-before
 ```
 

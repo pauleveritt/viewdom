@@ -1,6 +1,6 @@
 import pytest
 
-from examples import (
+from examples.usage import (
     static_string,
     static_stringA,
     static_stringB,

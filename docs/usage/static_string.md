@@ -2,7 +2,7 @@
 
 Let's start with the simplest form of templating: nothing dynamic, just "template" a string of HTML:
 
-```{literalinclude} ../../examples/static_string.py
+```{literalinclude} ../../examples/usage/static_string.py
 :end-before: end-before
 ```
 
@@ -17,7 +17,7 @@ The rendered result matches the comment at the end.
 
 Let's look at a variation of this, where we take the intermediate step of looking at the VDOM:
 
-```{literalinclude} ../../examples/static_stringA.py
+```{literalinclude} ../../examples/usage/static_stringA.py
 :end-before: end-before
 ```
 
@@ -31,7 +31,7 @@ As the comment shows, we get back a Python `namedtuple` with:
 
 What would this VDOM look like if we passed in some attributes, aka "props"?
 
-```{literalinclude} ../../examples/static_stringB.py
+```{literalinclude} ../../examples/usage/static_stringB.py
 :end-before: end-before
 ```
 
@@ -40,7 +40,7 @@ The second item in the VDOM tuple -- the props dictionary -- now has a key of 'c
 We can go one step further with this and use a little bit of templating.
 Let's pass in a Python symbol as part of the template:
 
-```{literalinclude} ../../examples/static_stringB.py
+```{literalinclude} ../../examples/usage/static_stringB.py
 :end-before: end-before
 ```
 
@@ -51,7 +51,7 @@ We did an f-string *inside* that prop value, using a Python expression that eval
 The VDOM's third item contains the "children".
 Let's look at what more nesting would look like:
 
-```{literalinclude} ../../examples/static_stringD.py
+```{literalinclude} ../../examples/usage/static_stringD.py
 :end-before: end-before
 ```
 The VDOM result in the comment stretches across multiple lines and shows the nested Python data structure of these VDOMs.
@@ -59,6 +59,6 @@ The VDOM result in the comment stretches across multiple lines and shows the nes
 The renderer also knows to collapse truthy-y values into simplified HTML attributes.
 Thus, instead of `editable="1"` you just get the attribute *name* without a *value*:
 
-```{literalinclude} ../../examples/static_stringE.py
+```{literalinclude} ../../examples/usage/static_stringE.py
 :end-before: end-before
 ```

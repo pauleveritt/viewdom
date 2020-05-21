@@ -22,42 +22,42 @@ Installation follows the normal Python packaging approach:
 
 Use `html` to generate a VDOM, then `render` to convert to a string:
 
-```{literalinclude} ../tests/docs/index/examples/e01.py
+```{literalinclude} ../examples/index/e01.py
 ```
 
 If you'd like, you can split those into two steps:
 
-```{literalinclude} ../tests/docs/index/examples/e01a.py
+```{literalinclude} ../examples/index/e01a.py
 ```
 
 Insert variables from the local or global scope:
 
-```{literalinclude} ../tests/docs/index/examples/e02.py
+```{literalinclude} ../examples/index/e02.py
 ```
 
 Expressions aren't some special language, it's just Python in inside curly braces:
 
-```{literalinclude} ../tests/docs/index/examples/e03.py
+```{literalinclude} ../examples/index/e03.py
 ```
 
 Rendering something conditionally is also "just Python":
 
-```{literalinclude} ../tests/docs/index/examples/e04.py
+```{literalinclude} ../examples/index/e04.py
 ```
 
 Looping? Yes, "just Python":
 
-```{literalinclude} ../tests/docs/index/examples/e05.py
+```{literalinclude} ../examples/index/e05.py
 ```
 
 Reusable components and subcomponents, passing props and children:
 
-```{literalinclude} ../tests/docs/index/examples/e06.py
+```{literalinclude} ../examples/index/e06.py
 ```
 
 Tired of passing props down a deep tree and want something like React context/hooks?
 
-```{literalinclude} ../tests/docs/index/examples/e07.py
+```{literalinclude} ../examples/index/e07.py
 ```
 
 ## Acknowledgments

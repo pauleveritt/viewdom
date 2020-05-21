@@ -4,31 +4,31 @@ Inserting a variable into a template mimics what you would expect from a Python 
 
 For example, in this case there is only one scope, the global one:
 
-```{literalinclude} ../../examples/variables.py
+```{literalinclude} ../../examples/usage/variables.py
 :end-before: end-before
 ```
 
 But in this case, the template is in a function, and `name` comes from that scope:
 
-```{literalinclude} ../../examples/variablesA.py
+```{literalinclude} ../../examples/usage/variablesA.py
 :end-before: end-before
 ```
 
 In this third case, `name` is imported from another module:
 
-```{literalinclude} ../../examples/variablesB.py
+```{literalinclude} ../../examples/usage/variablesB.py
 :end-before: end-before
 ```
 
 Of course, the function could get the symbol as an argument:
 
-```{literalinclude} ../../examples/variablesC.py
+```{literalinclude} ../../examples/usage/variablesC.py
 :end-before: end-before
 ```
 
 The function could make passing the argument optional by providing a default:
 
-```{literalinclude} ../../examples/variablesD.py
+```{literalinclude} ../../examples/usage/variablesD.py
 :end-before: end-before
 ```
 

@@ -6,6 +6,6 @@ Thus, conditionals are a common part of templating.
 They're also a common part of Python f-strings, because...well, Python has conditionals.
 Here's a simple example using a Python "ternary":
 
-```{literalinclude} ../../examples/conditional.py
+```{literalinclude} ../../examples/usage/conditional.py
 :end-before: end-before
 ```
