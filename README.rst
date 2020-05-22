@@ -134,6 +134,7 @@ Tired of passing props down a deep tree and want something like React context/ho
     '''))
     # '<h1>My Todos</h1><ul><li>Item: first</li></ul>'
 
-# Acknowledgments
+Acknowledgments
+===============
 
 The idea and code for ``viewdom`` -- the rendering, the idea of a theadlocal context, obviously ``tagged`` and ``htm``... essentially everything -- come from `Joachim Viide <https://github.com/jviide>`_.
