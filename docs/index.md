@@ -15,7 +15,7 @@ Installation follows the normal Python packaging approach:
 ```
 
 ```{note}
-`viewdom` depends on `htm` which depends on `tagged` which depends on nothing.
+`viewdom` depends on `htm` (which depends on `tagged` which depends on nothing) and `markupsafe`.
 ```
 
 ## Quick Examples
