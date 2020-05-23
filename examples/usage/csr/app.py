@@ -1,10 +1,18 @@
-from datetime import datetime
-import json
 from os.path import abspath, dirname, join
+from time import strftime, localtime
 
-from examples.usage.csr.bottle import route, run, static_file, template
+from examples.usage.csr.bottle import route, run, static_file
+from viewdom import html
 
 STATIC_DIR = abspath(join(dirname(__file__), 'static'))
+
+
+def Todos():
+    return html('''
+<ul>
+  <li>First Item <input type="checkbox"/></li>
+</ul>
+    ''')
 
 
 @route('/static/<filename>')
@@ -14,20 +22,12 @@ def server_static(filename):
 
 @route('/todos')
 def todos():
-    now = str(datetime.now())
-    child1 = ['em', {}, ['Hello',]]
-    response = ['h1', dict(id='hello'), ['Some Text', child1]]
-    return dict(response=response)
-    # child = dict(
-    #     type='em',
-    #     props=dict(),
-    #     children='XXXXX'
-    # )
-    # return dict(
-    #     type='h1',
-    #     props=dict(id='hello'),
-    #     children=[f'Hello World at {now}', child]
-    # )
+    now = strftime('%H:%M:%S', localtime())
+    response = html('''
+<h1 id="hello">Hello World at <em>{now}</em></h1>
+<{Todos}/>
+''')
+    return dict(response=str(response))
 
 
 @route('/')
@@ -40,6 +40,7 @@ def index():
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hello Bulma!</title>
     <link rel="stylesheet" href="static/bulma.css">
+    <link rel="shortcut icon" href="https://developer.mozilla.org/static/img/favicon32.7f3da72dcea1.png">
   </head>
   <body>
   <section class="section">
@@ -51,7 +52,7 @@ def index():
         My first website with <strong>Bulma</strong>!
       </p>
       <p><button id="update">Update</button></p>
-      <p id="message"></p>
+      <div id="todos"></div>
     </div>
   </section>
   <script src="static/app.js" type="module"></script>
@@ -61,4 +62,4 @@ def index():
 
 
 if __name__ == '__main__':
-    run(host='localhost', port=8089, reloader=True)
+    run(host='localhost', port=8089, reloader=True, fast=True)

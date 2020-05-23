@@ -13,7 +13,7 @@ function create(h, json) {
 }
 
 function updateTodos() {
-    const target = document.getElementById('message')
+    const target = document.getElementById('todos')
     fetch(TODOS_URL)
         .then(response => response.json())
         .then(data => {
