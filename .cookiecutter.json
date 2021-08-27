@@ -1,0 +1,12 @@
+{
+  "_template": "gh:cjolowicz/cookiecutter-hypermodern-python",
+  "author": "Paul Everitt",
+  "development_status": "Development Status :: 2 - Pre-Alpha",
+  "email": "pauleveritt@me.com",
+  "friendly_name": "ViewDOM",
+  "github_user": "pauleveritt",
+  "license": "MIT",
+  "package_name": "viewdom",
+  "project_name": "viewdom",
+  "version": "0.4.2"
+}
