@@ -1,4 +1,4 @@
-# ViewDOM
+# ViewDOM: Component-Driven Development for Python
 
 [![Coverage Status][codecov-badge]][codecov-link]
 [![Documentation Status][rtd-badge]][rtd-link]
@@ -28,6 +28,13 @@
 [pre-commit-badge]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
 [pre-commit-link]: https://github.com/pre-commit/pre-commit
 
+ViewDOM brings modern frontend templating patterns to Python:
+
+- [tagged](https://github.com/jviide/tagged) to have language-centered templating (like JS tagged templates)
+- [htm](https://github.com/jviide/htm.py) to generate virtual DOM structures from a template run (like the `htm` JS package)
+- ViewDOM for components which render a VDOM to a markup string, along with other modern machinery
+- Optional, the [Hopscotch](https://github.com/pauleveritt/hopscotch) for a component registry with dependency injection
+
 ## Features
 
 
@@ -37,6 +44,7 @@
 - viewdom
 - tagged
 - htm.py
+- Markupsafe
 
 ## Installation
 
@@ -47,6 +55,7 @@ $ pip install viewdom
 ```
 
 ## Quick Examples
+
 
 
 # Contributing
