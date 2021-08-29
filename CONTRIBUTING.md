@@ -1,26 +1,19 @@
-Contributor Guide
-=================
+# Contributor Guide
 
 Thank you for your interest in improving this project.
-This project is open-source under the `MIT license`_ and
+This project is open-source under the [MIT license](https://opensource.org/licenses/MIT) and
 welcomes contributions in the form of bug reports, feature requests, and pull requests.
 
 Here is a list of important resources for contributors:
 
-- `Source Code`_
-- `Documentation`_
-- `Issue Tracker`_
-- `Code of Conduct`_
+- [Source Code](https://github.com/pauleveritt/viewdom)
+- [Documentation](https://viewdom.readthedocs.io/)
+- [Issue Tracker](https://github.com/pauleveritt/viewdom/issues)
+- [Code of Conduct](codeofconduct)
 
-.. _MIT license: https://opensource.org/licenses/MIT
-.. _Source Code: https://github.com/pauleveritt/viewdom
-.. _Documentation: https://viewdom.readthedocs.io/
-.. _Issue Tracker: https://github.com/pauleveritt/viewdom/issues
+## How to report a bug
 
-How to report a bug
--------------------
-
-Report bugs on the `Issue Tracker`_.
+Report bugs on the [Issue Tracker](https://github.com/pauleveritt/viewdom/issues).
 
 When filing an issue, make sure to answer these questions:
 
@@ -33,73 +26,59 @@ When filing an issue, make sure to answer these questions:
 The best way to get your bug fixed is to provide a test case,
 and/or steps to reproduce the issue.
 
+## How to request a feature
 
-How to request a feature
-------------------------
+Request features on the [Issue Tracker](https://github.com/pauleveritt/viewdom/issues).
 
-Request features on the `Issue Tracker`_.
-
-
-How to set up your development environment
-------------------------------------------
+## How to set up your development environment
 
 You need Python 3.6+ and the following tools:
 
-- Poetry_
-- Nox_
-- nox-poetry_
+- [Poetry](https://python-poetry.org/)
+- [Nox](https://nox.thea.codes/)
+- [nox-poetry](https://nox-poetry.readthedocs.io/)
 
 Install the package with development requirements:
 
-.. code:: console
-
-   $ poetry install
+```shell
+$ poetry install
+```
 
 You can now run an interactive Python session,
 or the command-line interface:
 
-.. code:: console
+```shell
+$ poetry run python
+$ poetry run viewdom
+```
 
-   $ poetry run python
-   $ poetry run viewdom
-
-.. _Poetry: https://python-poetry.org/
-.. _Nox: https://nox.thea.codes/
-.. _nox-poetry: https://nox-poetry.readthedocs.io/
-
-
-How to test the project
------------------------
+## How to test the project
 
 Run the full test suite:
 
-.. code:: console
-
-   $ nox
+```shell
+$ nox
+```
 
 List the available Nox sessions:
 
-.. code:: console
-
-   $ nox --list-sessions
+```shell
+$ nox --list-sessions
+```
 
 You can also run a specific Nox session.
 For example, invoke the unit test suite like this:
 
-.. code:: console
+```shell
+$ nox --session=tests
+```
 
-   $ nox --session=tests
+Unit tests are located in the `tests` directory,
+and are written using the [pytest](https://pytest.readthedocs.io/) testing framework.
 
-Unit tests are located in the ``tests`` directory,
-and are written using the pytest_ testing framework.
+## How to submit changes
 
-.. _pytest: https://pytest.readthedocs.io/
-
-
-How to submit changes
----------------------
-
-Open a `pull request`_ to submit changes to this project.
+Open a [pull request](https://github.com/pauleveritt/viewdom/pulls) to submit changes to this project.
 
 Your pull request needs to meet the following guidelines for acceptance:
 
@@ -111,13 +90,9 @@ Feel free to submit early, though—we can always iterate on this.
 
 To run linting and code formatting checks before commiting your change, you can install pre-commit as a Git hook by running the following command:
 
-.. code:: console
-
-   $ nox --session=pre-commit -- install
+```shell
+$ nox --session=pre-commit -- install
+```
 
 It is recommended to open an issue before starting work on anything.
 This will allow a chance to talk it over with the owners and validate your approach.
-
-.. _pull request: https://github.com/pauleveritt/viewdom/pulls
-.. github-only
-.. _Code of Conduct: CODE_OF_CONDUCT.rst
