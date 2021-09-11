@@ -37,7 +37,6 @@ ViewDOM brings modern frontend templating patterns to Python:
 
 ## Features
 
-
 ## Requirements
 
 - Python 3.9+.
@@ -55,8 +54,6 @@ $ pip install viewdom
 ```
 
 ## Quick Examples
-
-
 
 # Contributing
 

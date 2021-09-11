@@ -4,39 +4,46 @@ from __future__ import annotations
 import functools
 import threading
 from collections import ChainMap
-from collections.abc import Iterable, ByteString
+from collections.abc import ByteString
+from collections.abc import Iterable
 from dataclasses import dataclass
-from inspect import signature, Parameter
-from typing import Union, Mapping, List, Callable, Sequence
+from inspect import Parameter
+from inspect import signature
+from typing import Callable
+from typing import List
+from typing import Mapping
+from typing import Sequence
+from typing import Union
 
-from htm import htm_parse, htm_eval
+from htm import htm_eval
+from htm import htm_parse
 from markupsafe import escape
 from tagged import tag
 
 # "void" elements are allowed to be self-closing
 # https://html.spec.whatwg.org/multipage/syntax.html#void-elements
 VOIDS = (
-    'area',
-    'base',
-    'br',
-    'col',
-    'embed',
-    'hr',
-    'img',
-    'input',
-    'keygen',
-    'link',
-    'meta',
-    'param',
-    'source',
-    'track',
-    'wbr',
+    "area",
+    "base",
+    "br",
+    "col",
+    "embed",
+    "hr",
+    "img",
+    "input",
+    "keygen",
+    "link",
+    "meta",
+    "param",
+    "source",
+    "track",
+    "wbr",
 )
 
 
 @dataclass(frozen=True)
 class VDOMNode:
-    __slots__ = ['tag', 'props', 'children']
+    __slots__ = ["tag", "props", "children"]
     tag: str
     props: Mapping
     children: List[Union[str, VDOMNode]]
@@ -67,7 +74,7 @@ html = htm(VDOMNode)
 
 def flatten(value):
     if isinstance(value, Iterable) and not isinstance(
-            value, (VDOMNode, str, ByteString)
+        value, (VDOMNode, str, ByteString)
     ):
         for item in value:
             yield from flatten(item)
@@ -109,9 +116,7 @@ def render_gen(value):
         if isinstance(item, VDOMNode):
             tag, props, children = item.tag, item.props, item.children
             if callable(tag):
-                yield from render_gen(
-                    relaxed_call(tag, children=children, **props)
-                )
+                yield from render_gen(relaxed_call(tag, children=children, **props))
                 continue
 
             yield f"<{escape(tag)}"
@@ -122,11 +127,11 @@ def render_gen(value):
             if children:
                 yield ">"
                 yield from render_gen(children)
-                yield f'</{escape(tag)}>'
+                yield f"</{escape(tag)}>"
             elif tag.lower() in VOIDS:
-                yield '/>'
+                yield "/>"
             else:
-                yield f'></{tag}>'
+                yield f"></{tag}>"
         elif item not in (True, False, None):
             yield escape(item)
 
