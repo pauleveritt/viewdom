@@ -1,6 +1,6 @@
 """Simplest example of generating a static vdom, no variables."""
-from viewdom import VDOMNode
 from viewdom import html
+from viewdom import VDOMNode
 
 
 def main() -> VDOMNode:

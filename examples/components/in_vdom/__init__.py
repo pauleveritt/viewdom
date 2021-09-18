@@ -1,6 +1,6 @@
 """Show the component in the VDOM."""
-from viewdom import VDOMNode
 from viewdom import html
+from viewdom import VDOMNode
 
 
 def Heading():

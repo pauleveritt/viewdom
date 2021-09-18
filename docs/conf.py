@@ -13,3 +13,4 @@ extensions = [
 autodoc_typehints = "description"
 html_theme = "furo"
 myst_enable_extensions = ["colon_fence"]
+exclude_patterns = [".pytest_cache"]

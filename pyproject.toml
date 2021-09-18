@@ -18,7 +18,7 @@ Changelog = "https://github.com/pauleveritt/viewdom/releases"
 
 [tool.poetry.dependencies]
 python = "^3.9.1"
-hopscotch = { path = "../hopscotch", develop = false }
+hopscotch = { git = "https://github.com/pauleveritt/hopscotch.git", branch="main" }
 tagged = "^0.0.2"
 venusian = "^3.0.0"
 htm = "^0.1.1"
@@ -31,12 +31,11 @@ safety = "^1.10.3"
 mypy = "^0.910"
 typeguard = "^2.12.1"
 xdoctest = {extras = ["colors"], version = "^0.15.5"}
-sphinx = "^4.1.1"
+sphinx = "4.1.1"
 sphinx-autobuild = "^2021.3.14"
 pre-commit = "^2.13.0"
 flake8 = "^3.9.2"
 black = "^21.7b0"
-flake8-bandit = "^2.1.2"
 flake8-bugbear = "^21.4.3"
 flake8-docstrings = "^1.6.0"
 flake8-rst-docstrings = "^0.2.3"
@@ -48,6 +47,8 @@ Pygments = "^2.9.0"
 furo = "^2021.8.17-beta.43"
 myst-parser = "^0.15.2"
 sybil = "^2.0.1"
+nox = "^2021.6.12"
+nox-poetry = "^0.8.6"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]

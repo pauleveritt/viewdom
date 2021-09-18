@@ -6,6 +6,7 @@
 ---
 maxdepth: 1
 ---
+examples/index
 reference
 contributing
 Code of Conduct <codeofconduct>

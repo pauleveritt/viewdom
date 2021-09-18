@@ -9,7 +9,7 @@ maxdepth: 1
 static_string
 variables
 expressions
-conditional
+conditionals
 looping
 components
 context

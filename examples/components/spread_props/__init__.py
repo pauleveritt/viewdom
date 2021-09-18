@@ -1,4 +1,4 @@
-"""Mimic ES6 spread operator to destructure props."""
+"""Mimic ES6 spread operator to de-structure props."""
 from viewdom import html
 from viewdom import render
 

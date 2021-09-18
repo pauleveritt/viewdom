@@ -40,8 +40,8 @@ ViewDOM brings modern frontend templating patterns to Python:
 - Component-driven development.
 - Intermediate VDOM.
 - Pass in data either via props (simple) or DI (rich).
-- Emphasis on modern Python dev practices: explicit, type hinting, 
-static analysis, testing, docs, linting, editors. 
+- Emphasis on modern Python dev practices: explicit, type hinting,
+  static analysis, testing, docs, linting, editors.
 
 ## Requirements
 

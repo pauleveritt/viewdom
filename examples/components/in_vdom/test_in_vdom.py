@@ -1,7 +1,7 @@
 """Test an example."""
-from viewdom import VDOMNode
-from . import main
 from . import Heading
+from . import main
+from viewdom import VDOMNode
 
 
 def test_main() -> None:

@@ -1,5 +1,4 @@
 """Test an example."""
-
 from . import main
 
 
