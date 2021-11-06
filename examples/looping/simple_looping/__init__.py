@@ -19,4 +19,5 @@ result = render(
 
 
 def main() -> str:
+    """Main entry point."""
     return result

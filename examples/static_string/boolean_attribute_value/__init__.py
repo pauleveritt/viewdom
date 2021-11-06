@@ -4,6 +4,7 @@ from viewdom import render
 
 
 def main() -> str:
+    """Main entry point."""
     vdom = html("<div editable={True}>Hello World</div>")
     result = render(vdom)
     return result

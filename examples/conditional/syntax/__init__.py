@@ -4,6 +4,7 @@ from viewdom import render
 
 
 def main() -> str:
+    """Main entry point."""
     message = "Say Howdy"
     not_message = "So Sad"
     show_message = True

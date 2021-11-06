@@ -6,7 +6,7 @@ from tempfile import mkdtemp
 
 import pytest
 from sybil import Sybil
-from sybil.parsers.codeblock import CodeBlockParser
+from sybil.parsers.codeblock import PythonCodeBlockParser
 from sybil.parsers.doctest import DocTestParser
 
 
@@ -27,7 +27,7 @@ def tempdir():
 pytest_collect_file = Sybil(
     parsers=[
         DocTestParser(),
-        CodeBlockParser(future_imports=["print_function"]),
+        PythonCodeBlockParser(future_imports=["print_function"]),
     ],
     pattern="*.md",
     fixtures=["tempdir"],

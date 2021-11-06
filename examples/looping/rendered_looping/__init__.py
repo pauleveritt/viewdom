@@ -4,6 +4,7 @@ from viewdom import render
 
 
 def main() -> str:
+    """Main entry point."""
     message = "Hello"
     names = ["World", "Universe"]
     items = [html("<li>{label}</li>") for label in names]

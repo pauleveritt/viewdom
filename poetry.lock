@@ -331,21 +331,14 @@ test = ["pytest", "pytest-cov", "pytest-xdist"]
 
 [[package]]
 name = "hopscotch"
-version = "0.1.1"
+version = "0.1.2"
 description = "Type-oriented registry with dependency injection."
 category = "main"
 optional = false
-python-versions = "^3.9.1"
-develop = false
+python-versions = ">=3.9.1,<4.0.0"
 
 [package.dependencies]
-venusian = "^3.0.0"
-
-[package.source]
-type = "git"
-url = "https://github.com/pauleveritt/hopscotch.git"
-reference = "main"
-resolved_reference = "170dc7a20e1c9010b5a95656ab056ebd8af192a5"
+venusian = ">=3.0.0,<4.0.0"
 
 [[package]]
 name = "htm"
@@ -1099,7 +1092,7 @@ tests = ["codecov", "scikit-build", "cmake", "ninja", "pybind11", "pytest", "pyt
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9.1"
-content-hash = "ed2e437cd3c85890ce51679c5575820f494071786ca1204b84973a14e2c62043"
+content-hash = "abf47407314e086778afd5c44cf91d9aba1c7c1e664399886a0e2b47b8816563"
 
 [metadata.files]
 alabaster = [
@@ -1258,7 +1251,10 @@ furo = [
     {file = "furo-2021.10.9-py3-none-any.whl", hash = "sha256:8da4448836e72db59033cd8d70dbdae96b0523c4424d806216febd38253870e8"},
     {file = "furo-2021.10.9.tar.gz", hash = "sha256:2baa42a22ede3e6e95c6182ab364bac2ec15b79bc7f9ca7fb09fd9aec4b3540c"},
 ]
-hopscotch = []
+hopscotch = [
+    {file = "hopscotch-0.1.2-py3-none-any.whl", hash = "sha256:37f413959e23c6cd11ef1cafb08f6234d2bc9cf1249432472e24dce4feff5bd4"},
+    {file = "hopscotch-0.1.2.tar.gz", hash = "sha256:c8fef5e4af776f0556e8208c842cd2ca2a8313021d1b6852c16272f43edf2c02"},
+]
 htm = [
     {file = "htm-0.1.1-py3-none-any.whl", hash = "sha256:7917b83997828e09f0808e3a70d4e873dc9a491552effff63fae91295aa4e14b"},
     {file = "htm-0.1.1.tar.gz", hash = "sha256:16c4022baf8c2d41efa20b707d9559190456469c2d5545440559e4599cd95631"},

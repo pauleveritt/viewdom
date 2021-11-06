@@ -11,14 +11,14 @@ import nox
 try:
     from nox_poetry import Session
     from nox_poetry import session
-except ImportError:
+except ImportError as err:
     message = f"""\
     Nox failed to import the 'nox-poetry' package.
 
     Please install it using the following command:
 
     {sys.executable} -m pip install nox-poetry"""
-    raise SystemExit(dedent(message))
+    raise SystemExit(dedent(message)) from err
 
 package = "viewdom"
 python_versions = ["3.9"]
@@ -26,9 +26,9 @@ nox.needs_version = ">= 2021.6.6"
 nox.options.sessions = (
     "pre-commit",
     "safety",
-    "mypy",
+    # "mypy",
     "tests",
-    "typeguard",
+    # "typeguard",
     "xdoctest",
     "docs-build",
 )
@@ -36,12 +36,14 @@ nox.options.sessions = (
 
 def install_with_constraints(session: Session, *args: str, **kwargs: Any) -> None:
     """Install packages constrained by Poetry's lock file.
+
     This function is a wrapper for nox.sessions.Session.install. It
     invokes pip to install packages inside of the session's virtualenv.
     Additionally, pip is passed a constraints file generated from
     Poetry's lock file, to ensure that the packages are pinned to the
     versions specified in poetry.lock. This allows you to manage the
     packages as Poetry development dependencies.
+
     Arguments:
         session: The Session object.
         args: Command-line arguments for pip.
@@ -87,7 +89,9 @@ def activate_virtualenv_in_precommit_hooks(session: Session) -> None:
         text = hook.read_text()
         bindir = repr(session.bin)[1:-1]  # strip quotes
         if not (
-            Path("A") == Path("a") and bindir.lower() in text.lower() or bindir in text
+            Path("A") == Path("a")
+            and bindir.lower() in text.lower()
+            or bindir in text  # noqa: B950
         ):
             continue
 
@@ -154,7 +158,7 @@ def mypy(session: Session) -> None:
 def tests(session: Session) -> None:
     """Run the test suite."""
     session.install(".")
-    session.install("coverage[toml]", "pytest", "pygments")
+    session.install("coverage[toml]", "pytest", "pygments", "sybil")
     try:
         session.run("coverage", "run", "--parallel", "-m", "pytest", *session.posargs)
     finally:
@@ -179,7 +183,7 @@ def coverage(session: Session) -> None:
 def typeguard(session: Session) -> None:
     """Runtime type checking using Typeguard."""
     session.install(".")
-    session.install("pytest", "typeguard", "pygments")
+    session.install("pytest", "typeguard", "pygments", "sybil")
     session.run("pytest", f"--typeguard-packages={package}", *session.posargs)
 
 
@@ -214,7 +218,6 @@ def docs(session: Session) -> None:
     install_with_constraints(
         session, "sphinx", "sphinx-autobuild", "sphinx-click", "furo", "myst_parser"
     )
-    # session.install("sphinx", "sphinx-autobuild", "sphinx-click", "furo", "myst_parser")
 
     build_dir = Path("docs", "_build")
     if build_dir.exists():

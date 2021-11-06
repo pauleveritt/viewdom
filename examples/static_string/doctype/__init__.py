@@ -6,9 +6,9 @@ from viewdom import render
 
 
 def main() -> str:
+    """Main entry point."""
     doctype = Markup("<!DOCTYPE html>\n")
     vdom = html("{doctype}<div>Hello World</div>")
-    # Markup('<!DOCTYPE html>\n'), VDOMNode(tag='div', props={}, children=['Hello World'])]
 
     result = render(vdom)
     return result

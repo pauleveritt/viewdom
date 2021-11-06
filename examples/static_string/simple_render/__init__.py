@@ -4,5 +4,6 @@ from viewdom import render
 
 
 def main() -> str:
+    """Main entry point."""
     result = render(html("<div>Hello World</div>"))
     return result

@@ -43,6 +43,8 @@ VOIDS = (
 
 @dataclass(frozen=True)
 class VDOMNode:
+    """Implementation of a node with three slots."""
+
     __slots__ = ["tag", "props", "children"]
     tag: str
     props: Mapping
@@ -53,6 +55,7 @@ VDOM = Union[Sequence[VDOMNode], VDOMNode]
 
 
 def htm(func=None, *, cache_maxsize=128) -> Callable[[str], VDOM]:
+    """The callable function to act as decorator."""
     cached_parse = functools.lru_cache(maxsize=cache_maxsize)(htm_parse)
 
     def _htm(h):
@@ -73,6 +76,7 @@ html = htm(VDOMNode)
 
 
 def flatten(value):
+    """Reduce a sequence."""
     if isinstance(value, Iterable) and not isinstance(
         value, (VDOMNode, str, ByteString)
     ):
@@ -87,6 +91,7 @@ def flatten(value):
 
 
 def relaxed_call(callable_, **kwargs):
+    """Lazy generation of results."""
     sig = signature(callable_)
     parameters = sig.parameters
 
@@ -108,10 +113,12 @@ def relaxed_call(callable_, **kwargs):
 
 
 def render(value: VDOM, **kwargs) -> str:
+    """Convert a node to a string."""
     return "".join(render_gen(Context(value, **kwargs)))
 
 
 def render_gen(value):
+    """Use a generator to render."""
     for item in flatten(value):
         if isinstance(item, VDOMNode):
             tag, props, children = item.tag, item.props, item.children
@@ -137,6 +144,7 @@ def render_gen(value):
 
 
 def encode_prop(k, v):
+    """If a prop is truthy, reduce it to just attribute name."""
     if v is True:
         return escape(k)
     return f'{escape(k)}="{escape(v)}"'
@@ -145,7 +153,8 @@ def encode_prop(k, v):
 _local = threading.local()
 
 
-def Context(children=None, **kwargs):
+def Context(children=None, **kwargs):  # noqa: N802
+    """Simulate React's context API."""
     context = getattr(_local, "context", ChainMap())
     try:
         _local.context = context.new_child(kwargs)
@@ -155,5 +164,6 @@ def Context(children=None, **kwargs):
 
 
 def use_context(key, default=None):
+    """Helper to grab the context."""
     context = getattr(_local, "context", ChainMap())
     return context.get(key, default)
