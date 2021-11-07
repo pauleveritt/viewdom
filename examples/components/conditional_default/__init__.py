@@ -3,7 +3,7 @@ from viewdom import html
 from viewdom import render
 
 
-def DefaultHeading():  # pragma: nocover
+def DefaultHeading():
     """The default heading."""
     return html("<h1>Default Heading</h1>")
 

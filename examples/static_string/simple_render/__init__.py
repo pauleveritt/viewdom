@@ -1,4 +1,4 @@
-"""Render a static string, no markup."""
+"""Render a string wrapped by a div."""
 from viewdom import html
 from viewdom import render
 

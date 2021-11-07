@@ -1,4 +1,4 @@
-"""Simple function component that returns a VDOM."""
+"""Simple function component, nothing dynamic, that returns a VDOM."""
 from viewdom import html
 from viewdom import render
 

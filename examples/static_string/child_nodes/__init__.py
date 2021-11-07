@@ -1,10 +1,9 @@
 """Child nodes become part of the VDOM."""
 from viewdom import html
-from viewdom import render
+from viewdom import VDOMNode
 
 
-def main() -> str:
+def main() -> VDOMNode:
     """Main entry point."""
     vdom = html("<div>Hello <span>World<em>!</em></span></div>")
-    result = render(vdom)
-    return result
+    return vdom

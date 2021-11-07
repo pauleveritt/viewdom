@@ -1,12 +1,13 @@
 # Conditionals
 
-## Simple Heading
+It's a common pattern in templating: return one chunk of HTML most of the time, but under certain conditions, return a different chunk.
 
-Here is a callable -- a function -- which returns a VDOM:
+Thus, conditionals are a common part of templating.
+They're also a common part of Python f-strings, because...well, Python has conditionals.
+Here's a simple example using a Python "ternary":
 
-```{literalinclude} ../../examples/components/simple_heading/__init__.py
+```{literalinclude} ../../examples/conditionals/syntax/__init__.py
 ---
-start-at: from viewdom
-end-before: def test
+start-at: def main
 ---
 ```

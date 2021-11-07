@@ -1,16 +1,20 @@
 """Use the Context API to avoid passing values down a long tree."""
+from viewdom import Context  # noqa
 from viewdom import html
 from viewdom import render
+from viewdom import use_context
 
 
-def NavHeading(title):
+def NavHeading():
     """A navigation heading component."""
+    site = use_context("site")
+    title = site["title"]
     return html("<h1>{title}</h1>")
 
 
-def Nav(site):
+def Nav():
     """A navigation component."""
-    return html('<nav><{NavHeading} title={site["title"]}/></nav>')
+    return html("<nav><{NavHeading}/></nav>")
 
 
 def PageHeading(title):
@@ -23,17 +27,17 @@ def Main(page):
     return html('<{PageHeading} title={page["title"]}/>')
 
 
-def App(site, page):
+def App(page):
     """An app for a site."""
     return html(
         """
-        <{Nav} site={site}/>
+        <{Nav}/>
         <{Main} page={page}/>
     """
     )
 
 
-def main() -> str:
+def main():
     """Main entry point."""
     site = dict(title="My Site")
     page = dict(title="My Page")
@@ -41,7 +45,9 @@ def main() -> str:
     return render(
         html(
             """
-        <{App} site={site} page={page} />
+        <{Context} site={site}>
+            <{App} page={page} />
+        <//>
 """
         )
     )

@@ -1,19 +1,16 @@
-from viewdom import Context  # noqa
+"""Pass needed values down a long component chain."""
 from viewdom import html
 from viewdom import render
-from viewdom import use_context
 
 
-def NavHeading():
+def NavHeading(title):
     """A navigation heading component."""
-    site = use_context("site")
-    title = site["title"]
     return html("<h1>{title}</h1>")
 
 
-def Nav():
+def Nav(site):
     """A navigation component."""
-    return html("<nav><{NavHeading}/></nav>")
+    return html('<nav><{NavHeading} title={site["title"]}/></nav>')
 
 
 def PageHeading(title):
@@ -26,11 +23,11 @@ def Main(page):
     return html('<{PageHeading} title={page["title"]}/>')
 
 
-def App(page):
+def App(site, page):
     """An app for a site."""
     return html(
         """
-        <{Nav}/>
+        <{Nav} site={site}/>
         <{Main} page={page}/>
     """
     )
@@ -44,9 +41,7 @@ def main():
     return render(
         html(
             """
-        <{Context} site={site}>
-            <{App} page={page} />
-        <//>
+        <{App} site={site} page={page} />
 """
         )
     )

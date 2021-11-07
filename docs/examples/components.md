@@ -25,8 +25,7 @@ Here is a component callable -- a `Heading` function -- which returns a VDOM:
 
 ```{literalinclude} ../../examples/components/simple_heading/__init__.py
 ---
-start-at: from viewdom
-emphasize-lines: 5-6
+start-at: def Heading
 ---
 ```
 
@@ -37,7 +36,6 @@ The VDOM now has something special in it: a callable as the "tag", rather than a
 ```{literalinclude} ../../examples/components/in_vdom/__init__.py
 ---
 start-at: def Heading
-emphasize-lines: 6-6
 ---
 ```
 
@@ -57,8 +55,7 @@ Here we pass a `title` as an argument to `Heading`, using a simple HTML attribut
 
 ```{literalinclude} ../../examples/components/simple_props/__init__.py
 ---
-start-after: from viewdom
-emphasize-lines: 4-4, 9-9
+start-at: def Heading
 ---
 ```
 
@@ -68,7 +65,7 @@ If your template has children inside that tag, your component can ask for them a
 
 ```{literalinclude} ../../examples/components/children_props/__init__.py
 ---
-start-after: from viewdom
+start-at: def Heading
 ---
 ```
 
@@ -81,8 +78,7 @@ The "prop" can also be a Python symbol, using curly braces as the attribute valu
 
 ```{literalinclude} ../../examples/components/expression_props/__init__.py
 ---
-start-after: from viewdom
-emphasize-lines: 9-9
+start-at: def Heading
 ---
 ```
 
@@ -92,8 +88,7 @@ That prop value can also be an in-scope variable:
 
 ```{literalinclude} ../../examples/components/scope_values/__init__.py
 ---
-start-after: from viewdom
-emphasize-lines: 8-8, 12-12
+start-at: def Heading
 ---
 ```
 
@@ -103,8 +98,7 @@ Since this is typical function-argument stuff, you can have optional props throu
 
 ```{literalinclude} ../../examples/components/optional_props/__init__.py
 ---
-start-after: from viewdom
-emphasize-lines: 4-4, 8-8
+start-at: def Heading
 ---
 ```
 
@@ -115,7 +109,7 @@ In JS, this is known as the "spread operator" and is supported:
 
 ```{literalinclude} ../../examples/components/spread_props/__init__.py
 ---
-start-after: from viewdom
+start-at: def Heading
 ---
 ```
 
@@ -126,8 +120,7 @@ This lets the caller -- in this case, the `result` line -- do the driving:
 
 ```{literalinclude} ../../examples/components/pass_component/__init__.py
 ---
-start-after: from viewdom
-emphasize-lines: 13-13
+start-at: def DefaultHeading
 ---
 ```
 
@@ -137,8 +130,7 @@ As a variation, let the caller do the driving but make the prop default to a def
 
 ```{literalinclude} ../../examples/components/default_component/__init__.py
 ---
-start-after: from viewdom
-emphasize-lines: 11-11
+start-at: def DefaultHeading
 ---
 ```
 
@@ -148,8 +140,7 @@ One final variation for passing a component as a prop... move the "default or pa
 
 ```{literalinclude} ../../examples/components/conditional_default/__init__.py
 ---
-start-after: from viewdom
-emphasize-lines: 12-12
+start-at: def DefaultHeading
 ---
 ```
 
@@ -161,8 +152,7 @@ In this case, `title` is a prop.
 
 ```{literalinclude} ../../examples/components/children_props/__init__.py
 ---
-start-after: from viewdom
-emphasize-lines: 3-3
+start-at: def Heading
 ---
 ```
 
@@ -174,7 +164,7 @@ There might be a lot of todos, so you want to generate them in a memory-efficien
 
 ```{literalinclude} ../../examples/components/generators/__init__.py
 ---
-start-after: from viewdom
+start-at: def Todos
 ---
 ```
 
@@ -185,8 +175,7 @@ They make up part of both the VDOM and the rendering:
 
 ```{literalinclude} ../../examples/components/subcomponents/__init__.py
 ---
-start-after: from viewdom
-end-before: def main
+start-at: def Todo
 ---
 ```
 
