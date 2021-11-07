@@ -7,7 +7,7 @@ Why should they have to depend on them?
 
 ## Pass-Through
 
-Thi is the harder, manual way.
+This is the harder, manual way.
 
 In this example the `site` object is passed through the `App` component, then `Nav`, to get it to `NavHeading`.
 Neither `App` nor `Nav` need anything from `site`.

@@ -33,7 +33,7 @@ ViewDOM brings modern frontend templating patterns to Python:
 - [tagged](https://github.com/jviide/tagged) to have language-centered templating (like JS tagged templates)
 - [htm](https://github.com/jviide/htm.py) to generate virtual DOM structures from a template run (like the `htm` JS package)
 - ViewDOM for components which render a VDOM to a markup string, along with other modern machinery
-- Optional, the [Hopscotch](https://github.com/pauleveritt/hopscotch) for a component registry with dependency injection
+- Optionally, [Hopscotch](https://github.com/pauleveritt/hopscotch) for a component registry with dependency injection
 
 ## Features
 

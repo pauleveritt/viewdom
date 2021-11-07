@@ -19,11 +19,11 @@ Changelog = "https://github.com/pauleveritt/viewdom/releases"
 [tool.poetry.dependencies]
 python = "^3.9.1"
 #hopscotch = { git = "https://github.com/pauleveritt/hopscotch.git", branch="main" }
-hopscotch = "^0.1.2"
 tagged = "^0.0.2"
 venusian = "^3.0.0"
 htm = "^0.1.1"
 MarkupSafe = "^2.0.1"
+hopscotch = "^0.1.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.4"

@@ -3,8 +3,8 @@ from viewdom import html
 from viewdom import render
 
 
-
 def main() -> str:
+    """Main entry point."""
     vdom = html('<div class={"Container1".lower()}>Hello World</div>')
     result = render(vdom)
     return result

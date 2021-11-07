@@ -1,21 +1,46 @@
 # Expressions
 
-## Simple Heading
+In Python f-strings, the curly brackets can take not just variable names, but also Python "expressions".
 
-Here is a callable -- a function -- which returns a VDOM:
+Same is true in `viewdom`.
 
-```{literalinclude} ../../examples/components/simple_heading/__init__.py
+## Python Operation
+
+Let's use an expression which adds two numbers together:
+
+```{literalinclude} ../../examples/expressions/python_operation/__init__.py
 ---
-start-at: from viewdom
-end-before: def test
+start-at: def main
 ---
 ```
 
 ## Simple Arithmetic
 
+Let's use an expression which adds two numbers together:
+
+```{literalinclude} ../../examples/expressions/simple_arithmetic/__init__.py
+---
+start-at: def main
+---
+```
 
 ## Python Operation
 
+The expression can do a bit more. For example, call a method on a string to uppercase it:
+
+```{literalinclude} ../../examples/expressions/python_operation/__init__.py
+---
+start-at: def main
+---
+```
 
 ## Call a Function
 
+But it's Python and f-strings-ish, so you can do even more.
+For example, call an in-scope function with an argument, which does some work, and insert the result:
+
+```{literalinclude} ../../examples/expressions/call_function/__init__.py
+---
+start-at: def
+---
+```

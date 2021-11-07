@@ -12,5 +12,6 @@ expressions
 conditionals
 looping
 components
+hopscotch
 context
 ```
