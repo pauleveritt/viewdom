@@ -1,4 +1,4 @@
-"""Simple function component, nothing dynamic, that returns a VDOM."""
+"""Replace a built-in component using a local site registration."""
 from hopscotch import Registry
 
 from .app import Heading  # noqa: F401

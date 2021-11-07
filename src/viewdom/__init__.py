@@ -7,14 +7,17 @@ from collections import ChainMap
 from collections.abc import ByteString
 from collections.abc import Iterable
 from dataclasses import dataclass
-from inspect import Parameter
-from inspect import signature
 from typing import Callable
 from typing import List
 from typing import Mapping
+from typing import Optional
 from typing import Sequence
 from typing import Union
 
+from hopscotch import Registry
+from hopscotch.registry import inject_callable
+from hopscotch.registry import Props
+from hopscotch.registry import Registration
 from htm import htm_eval
 from htm import htm_parse
 from markupsafe import escape
@@ -90,71 +93,118 @@ def flatten(value):
         yield value
 
 
-def relaxed_call(callable_, **kwargs):
-    """Lazy generation of results."""
-    sig = signature(callable_)
-    parameters = sig.parameters
+def relaxed_call(
+    callable_,
+    registry: Optional[Registry] = None,
+    children=None,
+    props: Optional[Props] = None,
+) -> VDOM:
+    """Get the correct implementation and call it to produce a vdom."""
+    # Props should include children, which come from "the system"
+    if props is None:
+        props = {}
+    full_props = props | dict(children=children)
 
-    if not any(p.kind == p.VAR_KEYWORD for p in parameters.values()):
-        extra_key = "_"
-        while extra_key in parameters:
-            extra_key += "_"
+    vdom = None
+    if registry:
+        # Try to get the implementation from the registry.
+        try:
+            vdom = registry.get(callable_, **full_props)
+        except LookupError:
+            # We'll give a chance at the next step.
+            pass
+    # We can still use plain-old-symbol unregistered callables when
+    # using a registry, so if not found, use it directly.
+    if vdom is None:
+        if callable_.__class__.__name__ not in ["type", "function"] and callable(
+            callable_
+        ):
+            # The symbol is an already-instantiated class, like a component,
+            # which has a __call__.
+            vdom = callable_
+        else:
+            registration = Registration(
+                implementation=callable_,
+            )
+            vdom = inject_callable(
+                registration,
+                props=full_props,
+                registry=registry,
+            )
 
-        sig = sig.replace(
-            parameters=[
-                *parameters.values(),
-                Parameter(extra_key, Parameter.VAR_KEYWORD),
-            ]
+    if callable(vdom):
+        # This is class-based component.
+        vdom = vdom()
+
+    return vdom
+
+
+def render(
+    value: VDOM,
+    registry: Optional[Registry] = None,
+    **kwargs,
+) -> str:
+    """Render a VDOM to a string."""
+    return "".join(
+        render_gen(
+            value,
+            registry=registry,
+            children=None,
         )
-        kwargs = dict(sig.bind(**kwargs).arguments)
-        kwargs.pop(extra_key, None)
-
-    return callable_(**kwargs)
+    )
 
 
-def render(value: VDOM, **kwargs) -> str:
-    """Convert a node to a string."""
-    return "".join(render_gen(Context(value, **kwargs)))
-
-
-def render_gen(value):
-    """Use a generator to render."""
+def render_gen(
+    value,
+    registry: Optional[Registry] = None,
+    children=None,
+):
+    """Render as a generator."""
     for item in flatten(value):
         if isinstance(item, VDOMNode):
-            tag, props, children = item.tag, item.props, item.children
-            if callable(tag):
-                yield from render_gen(relaxed_call(tag, children=children, **props))
+            this_tag, props, children = item.tag, item.props, item.children
+
+            # Is this_tag a callable component, or just '<div>'?
+            if callable(this_tag):
+                yield from render_gen(
+                    relaxed_call(this_tag, registry, children=children, props=props)
+                )
                 continue
 
-            yield f"<{escape(tag)}"
+            yield f"<{escape(this_tag)}"
             if props:
                 pi = props.items()
                 yield f" {' '.join(encode_prop(k, v) for (k, v) in pi)}"
 
             if children:
                 yield ">"
-                yield from render_gen(children)
-                yield f"</{escape(tag)}>"
-            elif tag.lower() in VOIDS:
+                yield from render_gen(children, registry)
+                yield f"</{escape(this_tag)}>"
+            elif this_tag.lower() in VOIDS:
                 yield "/>"
             else:
-                yield f"></{tag}>"
+                yield f"></{this_tag}>"
         elif item not in (True, False, None):
             yield escape(item)
 
 
 def encode_prop(k, v):
-    """If a prop is truthy, reduce it to just attribute name."""
+    """If possible, reduce an attribute to just the name."""
     if v is True:
         return escape(k)
     return f'{escape(k)}="{escape(v)}"'
+
+
+# #########
+# The Context API is currently unused. It will be replaced later
+# with a non-threadlocal implementation in the switch to asyncio.
 
 
 _local = threading.local()
 
 
 def Context(children=None, **kwargs):  # noqa: N802
-    """Simulate React's context API."""
+    """Like the React Conext API."""
     context = getattr(_local, "context", ChainMap())
     try:
         _local.context = context.new_child(kwargs)
@@ -164,6 +214,6 @@ def Context(children=None, **kwargs):  # noqa: N802
 
 
 def use_context(key, default=None):
-    """Helper to grab the context."""
+    """Similar to the React use context API."""
     context = getattr(_local, "context", ChainMap())
     return context.get(key, default)

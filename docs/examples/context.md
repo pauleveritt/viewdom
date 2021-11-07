@@ -1,5 +1,10 @@
 # Context
 
+```{warning} Currently Disabled
+The code for context is still there but unused.
+I plan to re-enable when switching away from threadlocal to maybe asyncio ContextVar.
+```
+
 When you really embrace components and subcomponents, you end up with deeply nested component trees.
 It can be frustrating, not to mention brittle, to pass data all the way from the top to the bottom.
 Intermediate components don't use the data.

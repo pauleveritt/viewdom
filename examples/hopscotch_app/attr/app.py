@@ -3,7 +3,16 @@ from dataclasses import dataclass
 
 from hopscotch import injectable
 
-from viewdom import html, VDOM
+from viewdom import html
+from viewdom import VDOM
+
+
+# The class used as the "context"
+@dataclass
+class Customer:
+    """The person to greet, stored as the registry context."""
+
+    first_name: str
 
 
 @injectable()

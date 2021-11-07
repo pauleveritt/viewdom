@@ -1,4 +1,5 @@
 """Test rendering."""
+import pytest
 from markupsafe import Markup
 
 from viewdom import html
@@ -32,6 +33,7 @@ def test_double_renderer():
     assert ["div2"] == vdom[1].children
 
 
+@pytest.mark.skip(reason="Implementation was removed.")
 def test_render_context():
     """Test the context support."""
     from viewdom import Context  # noqa

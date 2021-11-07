@@ -2,17 +2,6 @@
 
 Inserting a variable into a template mimics what you would expect from a Python f-string.
 
-## Simple Heading
-
-Here is a callable -- a function -- which returns a VDOM.
-Nothing dynamic:
-
-```{literalinclude} ../../examples/variables/simple_heading/__init__.py
----
-start-at: def Heading
----
-```
-
 ## Insert Value Into Template
 
 In this case, the template is in a function, and `name` comes from that scope:
