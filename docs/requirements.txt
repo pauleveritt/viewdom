@@ -1,4 +1,4 @@
-sphinx==4.1.1
+sphinx==4.2.0
 myst-parser==0.15.2
-sybil==2.0.1
-furo=2021.8.17-beta.43
+sybil==3.0.0
+furo==2021.10.9
