@@ -10,11 +10,11 @@ def main() -> str:
     items = [html("<li>{label}</li>") for label in names]
     result = render(
         html(
-            """
-      <ul title="{message}">
-        {items}
-      </li>
-    """
+          """
+            <ul title="{message}">
+              {items}
+            </ul>
+          """
         )
     )
     return result
