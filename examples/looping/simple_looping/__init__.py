@@ -10,14 +10,13 @@ def main() -> str:
     result = render(
         html(
             """
-      <ul title="{message}">
-        {[
-            html('<li>{name}</li>')
-            for name in names
-         ] }
-      </li>
-    """
+            <ul title="{message}">
+                {[
+                    html('<li>{name}</li>')
+                    for name in names
+                ]}
+            </ul>
+            """
         )
     )
-
     return result
