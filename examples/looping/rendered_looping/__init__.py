@@ -11,10 +11,10 @@ def main() -> str:
     result = render(
         html(
             """
-      <ul title="{message}">
-        {items}
-      </li>
-    """
+            <ul title="{message}">
+              {items}
+            </ul>
+            """
         )
     )
     return result
