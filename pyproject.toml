@@ -27,7 +27,7 @@ hopscotch = "^0.1.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
-coverage = {extras = ["toml"], version = "^6.2"}
+coverage = {extras = ["toml"], version = "^6.3"}
 safety = "^1.10.3"
 mypy = "^0.931"
 xdoctest = {extras = ["colors"], version = "^0.15.10"}
@@ -42,7 +42,7 @@ flake8-docstrings = "^1.6.0"
 flake8-rst-docstrings = "^0.2.5"
 pep8-naming = "^0.12.1"
 darglint = "^1.8.1"
-reorder-python-imports = "^2.7.0"
+reorder-python-imports = "^2.7.1"
 pre-commit-hooks = "^4.1.0"
 Pygments = "^2.11.2"
 pyupgrade = "^2.31.0"
