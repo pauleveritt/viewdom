@@ -23,7 +23,7 @@ tagged = "^0.0.2"
 venusian = "^3.0.0"
 htm = "^0.1.1"
 MarkupSafe = "^2.0.1"
-hopscotch = "^0.1.2"
+hopscotch = ">=0.1.2,<0.3.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.0.1"
