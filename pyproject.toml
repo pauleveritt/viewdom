@@ -49,7 +49,7 @@ pyupgrade = "^2.31.0"
 nox = "^2022.1.7"
 nox-poetry = "^0.9.0"
 furo = "^2022.1.2"
-myst-parser = "^0.16.1"
+myst-parser = "^0.17.0"
 sybil = "^3.0.0"
 
 
