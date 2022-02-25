@@ -1046,7 +1046,7 @@ pbr = ">=2.0.0,<2.1.0 || >2.1.0"
 
 [[package]]
 name = "sybil"
-version = "3.0.0"
+version = "3.0.1"
 description = "Automated testing for the examples in your code and documentation."
 category = "dev"
 optional = false
@@ -1190,7 +1190,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9.1"
-content-hash = "7afaf720294d175e79e17ff58d4dd40453e1ce42dbe8b77219fdfab00953b510"
+content-hash = "878c3d8654d40d07b71fccd39e6df28fcd923b98c67e3f56fa31cce5f6e4f503"
 
 [metadata.files]
 alabaster = [
@@ -1713,8 +1713,8 @@ stevedore = [
     {file = "stevedore-3.5.0.tar.gz", hash = "sha256:f40253887d8712eaa2bb0ea3830374416736dc8ec0e22f5a65092c1174c44335"},
 ]
 sybil = [
-    {file = "sybil-3.0.0-py3-none-any.whl", hash = "sha256:98caf3d4cf0212636f9b6eac819c45ff0c5790ace121068f4a4c21b2c941ffb4"},
-    {file = "sybil-3.0.0.tar.gz", hash = "sha256:7692ed66e793e5e79ae6a70cf2cf861917ed48eaff0d8adf825e64d85820f251"},
+    {file = "sybil-3.0.1-py3-none-any.whl", hash = "sha256:5fa9dfc5d0e27f8c0e0b966baab2b8edc66d19c4bac7069d75b2dca8a30b5cef"},
+    {file = "sybil-3.0.1.tar.gz", hash = "sha256:6f02dc2204af7e5a212037924d974f72781f6dc18fd3c44cc7ce463a120f530d"},
 ]
 tagged = [
     {file = "tagged-0.0.2-py3-none-any.whl", hash = "sha256:6f9bbb98c083536c5ec283688ddc9cec830ac0de19ab4ad9fa12db66985f7469"},
