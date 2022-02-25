@@ -361,7 +361,7 @@ gitdb = ">=4.0.1,<5"
 
 [[package]]
 name = "hopscotch"
-version = "0.1.4"
+version = "0.2.0"
 description = "Type-oriented registry with dependency injection."
 category = "main"
 optional = false
@@ -1190,7 +1190,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9.1"
-content-hash = "647a349da5b503b0267e40aab6d2e3bf9bf1869747821cfdb1c1567a29a255b7"
+content-hash = "7afaf720294d175e79e17ff58d4dd40453e1ce42dbe8b77219fdfab00953b510"
 
 [metadata.files]
 alabaster = [
@@ -1377,8 +1377,8 @@ gitpython = [
     {file = "GitPython-3.1.26.tar.gz", hash = "sha256:fc8868f63a2e6d268fb25f481995ba185a85a66fcad126f039323ff6635669ee"},
 ]
 hopscotch = [
-    {file = "hopscotch-0.1.4-py3-none-any.whl", hash = "sha256:05195e7127cb12513fb3d63d9b7e478c06996ef5a4fa04b1eb9c1b1c0de62adb"},
-    {file = "hopscotch-0.1.4.tar.gz", hash = "sha256:e64697927166ea9076e611e0d940252c3456aaeba05143b05cc8ea7f7317b5d2"},
+    {file = "hopscotch-0.2.0-py3-none-any.whl", hash = "sha256:e1beb79df65b60d1fba6540a2905e32996ea7c6502a1a318a71bc82b5d2cff08"},
+    {file = "hopscotch-0.2.0.tar.gz", hash = "sha256:6dc933c100dc57a77cc3a6dacc2a5a0fab39c98d817884d210d832d50d556834"},
 ]
 htm = [
     {file = "htm-0.1.1-py3-none-any.whl", hash = "sha256:7917b83997828e09f0808e3a70d4e873dc9a491552effff63fae91295aa4e14b"},
