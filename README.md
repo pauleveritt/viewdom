@@ -59,7 +59,138 @@ You can install ViewDOM via [pip](https://pip.pypa.io/) from [PyPI](https://pypi
 $ pip install viewdom
 ```
 
-## Quick Examples
+# Quick Examples
+
+Use ``htm`` to generate a VDOM, then ``render`` to convert to a string:
+
+```python
+render(html("<div>Hello World</div>"))
+```
+
+If you'd like, you can split those into two steps:
+
+```python
+vdom = html("<div>Hello World</div>")
+render(vdom)
+```
+
+Insert variables from the normal Python local or global scope:
+
+```python
+name = "viewdom"
+render(html("<div>Hello {name}</div>"))
+```
+
+Expressions aren't some special language, it's just Python in inside curly braces:
+
+```python
+name = "viewdom"
+render(html("<div>Hello {name.upper()}</div>"))
+```
+
+Rendering something conditionally is also "just Python":
+
+```python
+message = "Say Howdy"
+not_message = "So Sad"
+show_message = True
+render(html("""
+    <h1>Show?</h1>
+    {message if show_message else not_message}
+  """))
+```
+
+Looping? Yes, "just Python":
+
+```python
+message = "Hello"
+names = ["World", "Universe"]
+
+render(
+    html(
+        """
+  <ul title="{message}">
+    {[
+        html('<li>{name}</li>')
+        for name in names
+     ] }
+  </li>
+"""
+    )
+)
+```
+
+Reusable components and subcomponents, passing props and children:
+
+```python
+def Todo(label):
+    """Render a to do."""
+    return html("<li>{label}</li>")
+
+
+def TodoList(todos):
+    """Render a list of to dos."""
+    return html("<ul>{[Todo(label) for label in todos]}</ul>")
+
+
+title = "My Todos"
+todos = ["first"]
+
+render(
+    html(
+        """
+  <h1>{title}</h1>
+  <{TodoList} todos={todos} />
+"""
+    )
+)
+```
+Components can be any kind of callable:
+
+```python
+@dataclass
+class Greeting:
+    """Give a greeting."""
+
+    name: str
+
+    def __call__(self):
+        """Render to a string."""
+        return f"Hello {self.name}"
+
+greeting = Greeting(name="viewdom")
+render(html("<div><{greeting} /></div>"))
+```
+
+Tired of passing props down a deep tree and want something like React context/hooks?
+
+```python
+
+def Todo(label):
+    """Render a to do."""
+    prefix = use_context("prefix")
+    return html("<li>{prefix}{label}</li>")
+
+
+def TodoList(these_todos):
+    """Render a to do list."""
+    return html("<ul>{[Todo(label) for label in these_todos]}</ul>")
+
+
+title = "My Todos"
+todos = ["first"]
+render(
+    html(
+        """
+  <{Context} prefix="Item: ">
+      <h1>{title}</h1>
+      <{TodoList} these_todos={todos} />
+  <//>
+"""
+    )
+)
+```
+
 
 # Contributing
 
