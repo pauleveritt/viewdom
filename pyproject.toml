@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "viewdom"
-version = "0.6.2"
+version = "0.6.3"
 description = "ViewDOM"
 authors = ["Paul Everitt <pauleveritt@me.com>"]
 license = "MIT"
@@ -23,7 +23,7 @@ tagged = "^0.0.2"
 venusian = "^3.0.0"
 htm = "^0.1.1"
 MarkupSafe = "^2.0.1"
-hopscotch = ">=0.1.2,<0.3.0"
+hopscotch = ">=0.3.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.0.1"
