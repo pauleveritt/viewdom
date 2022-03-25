@@ -29,7 +29,7 @@ hopscotch = ">=0.3.0"
 pytest = "^7.0.1"
 coverage = {extras = ["toml"], version = "^6.3"}
 safety = "^1.10.3"
-mypy = "^0.931"
+mypy = "^0.942"
 xdoctest = {extras = ["colors"], version = "^0.15.10"}
 sphinx = "^4.4.0"
 sphinx-autobuild = "^2021.3.14"
