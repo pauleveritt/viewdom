@@ -1,0 +1,4 @@
+docs/_build
+docs/_output
+.coverage
+dist
