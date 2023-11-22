@@ -20,7 +20,7 @@ except ImportError as exc:
     raise SystemExit(dedent(message)) from exc
 
 package = "viewdom"
-python_versions = ["3.10", "3.9"]
+python_versions = ["3.12", "3.11"]
 nox.options.sessions = (
     "pre-commit",
     # "safety",

@@ -57,25 +57,19 @@ class VDOMNode:
 VDOM = Union[Sequence[VDOMNode], VDOMNode]
 
 
-def htm(func=None, *, cache_maxsize=128) -> Callable[[str], VDOM]:
+def htm(cache_maxsize=128) -> Callable[[str], VDOM]:
     """The callable function to act as decorator."""
     cached_parse = functools.lru_cache(maxsize=cache_maxsize)(htm_parse)
 
-    def _htm(h):
-        @tag
-        @functools.wraps(h)
-        def __htm(strings, values):
-            ops = cached_parse(strings)
-            return htm_eval(h, ops, values)
+    @tag
+    def __htm(strings, values):
+        ops = cached_parse(strings)
+        return htm_eval(VDOMNode, ops, values)
 
-        return __htm
-
-    if func is not None:
-        return _htm(func)
-    return _htm
+    return __htm
 
 
-html = htm(VDOMNode)
+html = htm()
 
 
 def flatten(value):
@@ -192,7 +186,7 @@ def encode_prop(k, v):
     """If possible, reduce an attribute to just the name."""
     if v is True:
         return escape(k)
-    return f'{escape(k)}="{escape(v)}"'
+    return f'{escape(k)}="{escape(v)}"'  # noqa: B907
 
 
 # #########
