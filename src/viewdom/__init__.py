@@ -2,8 +2,6 @@
 from __future__ import annotations
 
 import functools
-import threading
-from collections import ChainMap
 from collections.abc import ByteString
 from collections.abc import Iterable
 from dataclasses import dataclass
@@ -187,27 +185,3 @@ def encode_prop(k, v):
     if v is True:
         return escape(k)
     return f'{escape(k)}="{escape(v)}"'  # noqa: B907
-
-
-# #########
-# The Context API is currently unused. It will be replaced later
-# with a non-threadlocal implementation in the switch to asyncio.
-
-
-_local = threading.local()
-
-
-def Context(children=None, **kwargs):  # noqa: N802
-    """Like the React Conext API."""
-    context = getattr(_local, "context", ChainMap())
-    try:
-        _local.context = context.new_child(kwargs)
-        yield children
-    finally:
-        _local.context = context
-
-
-def use_context(key, default=None):
-    """Similar to the React use context API."""
-    context = getattr(_local, "context", ChainMap())
-    return context.get(key, default)

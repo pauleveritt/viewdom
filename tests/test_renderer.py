@@ -1,10 +1,8 @@
 """Test rendering."""
-import pytest
 from markupsafe import Markup
 
 from viewdom import html
 from viewdom import render
-from viewdom import use_context
 
 
 def functional_component(children, header="Functional components!"):
@@ -31,27 +29,6 @@ def test_double_renderer():
     vdom = html('<div id="d1">div1</div><div id="d2">div2</div>')
     assert ["div1"] == vdom[0].children
     assert ["div2"] == vdom[1].children
-
-
-@pytest.mark.skip(reason="Implementation was removed.")
-def test_render_context():
-    """Test the context support."""
-    from viewdom import Context  # noqa
-
-    def App():  # noqa
-        message = use_context("message")  # noqa
-        return html("<div>{message}<//><{functional_component}/>")
-
-    vdom = html(
-        """
-  <{Context} message='c1'>
-    <{App} />
-  <//>
-"""
-    )
-    result = render(vdom)
-    expected = "<div>c1</div><h2>Functional components!</h2><span>c1</span>"
-    assert expected == result
 
 
 def test_render_escaped_value():
