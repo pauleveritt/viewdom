@@ -6,34 +6,35 @@ on:
 
 jobs:
   tests:
-    name: ${{ matrix.session }} ${{ matrix.python }} / ${{ matrix.os }}
+    name: ${{ matrix.script }} ${{ matrix.python }} / ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         include:
-          - { python: "3.12", os: "ubuntu-latest", session: "pre-commit" }
-          - { python: "3.12", os: "ubuntu-latest", session: "safety" }
-          - { python: "3.12", os: "ubuntu-latest", session: "tests" }
-          - { python: "3.12", os: "windows-latest", session: "tests" }
-          - { python: "3.12", os: "macos-latest", session: "tests" }
-          - { python: "3.12", os: "ubuntu-latest", session: "xdoctest" }
-          - { python: "3.12", os: "ubuntu-latest", session: "docs-build" }
+          - { python: "3.12", os: "ubuntu-latest", script: "pre-commit" }
+          - { python: "3.12", os: "ubuntu-latest", script: "safety" }
+          - { python: "3.12", os: "ubuntu-latest", script: "test" }
+          - { python: "3.12", os: "windows-latest", script: "test" }
+          - { python: "3.12", os: "macos-latest", script: "test" }
+          - { python: "3.12", os: "ubuntu-latest", script: "docs-build" }
 
     env:
-      NOXSESSION: ${{ matrix.session }}
-      FORCE_COLOR: "1"
       PRE_COMMIT_COLOR: "always"
 
     steps:
       - name: Check out the repository
-        uses: actions/checkout@v3
-
+        uses: actions/checkout@v4
+      - name: Create .script-cache.txt for pip cache
+        run: |
+          echo ${{ matrix.script }} > .script-cache.txt
+        shell: bash
       - name: Set up Python ${{ matrix.python }}
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python }}
-
+          cache: pip
+          cache-dependency-path: .script-cache.txt
       - name: Upgrade pip
         run: |
           pip install --constraint=.github/workflows/constraints.txt pip
@@ -48,19 +49,13 @@ jobs:
           with open(os.environ["GITHUB_ENV"], mode="a") as io:
               print(f"VIRTUALENV_PIP={pip.__version__}", file=io)
 
-      - name: Install Poetry
+      - name: Install Hatch
         run: |
-          pipx install --pip-args=--constraint=.github/workflows/constraints.txt poetry
-          poetry --version
-
-      - name: Install Nox
-        run: |
-          pipx install --pip-args=--constraint=.github/workflows/constraints.txt nox
-          pipx inject --pip-args=--constraint=.github/workflows/constraints.txt nox nox-poetry
-          nox --version
+          pipx install hatch
+          hatch version
 
       - name: Compute pre-commit cache key
-        if: matrix.session == 'pre-commit'
+        if: matrix.script == 'pre-commit'
         id: pre-commit-cache
         shell: python
         run: |
@@ -75,56 +70,28 @@ jobs:
           print("::set-output name=result::{}".format(result))
 
       - name: Restore pre-commit cache
-        uses: actions/cache@v2.1.7
-        if: matrix.session == 'pre-commit'
+        uses: actions/cache@v3.3.2
+        if: matrix.script == 'pre-commit'
         with:
           path: ~/.cache/pre-commit
           key: ${{ steps.pre-commit-cache.outputs.result }}-${{ hashFiles('.pre-commit-config.yaml') }}
           restore-keys: |
             ${{ steps.pre-commit-cache.outputs.result }}-
 
-      - name: Run Nox
+      - name: Run `hatch run`
         run: |
-          nox --python=${{ matrix.python }}
+          hatch run +py=${{ matrix.python }} ${{ matrix.script }}:run
 
       - name: Upload coverage data
-        if: always() && matrix.session == 'tests'
+        if: always() && matrix.script == 'test'
         uses: "actions/upload-artifact@v3"
         with:
           name: coverage-data
           path: ".coverage.*"
 
       - name: Upload documentation
-        if: matrix.session == 'docs-build'
+        if: matrix.script == 'docs-build'
         uses: actions/upload-artifact@v3
         with:
           name: docs
           path: docs/_build
-
-  coverage:
-    runs-on: ubuntu-latest
-    needs: tests
-    steps:
-      - name: Check out the repository
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v3
-        with:
-          python-version: "3.12"
-
-      - name: Upgrade pip
-        run: |
-          pip install --constraint=.github/workflows/constraints.txt pip
-          pip --version
-
-      - name: Install Poetry
-        run: |
-          pipx install --pip-args=--constraint=.github/workflows/constraints.txt poetry
-          poetry --version
-
-      - name: Install Nox
-        run: |
-          pipx install --pip-args=--constraint=.github/workflows/constraints.txt nox
-          pipx inject --pip-args=--constraint=.github/workflows/constraints.txt nox nox-poetry
-          nox --version
