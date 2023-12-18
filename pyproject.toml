@@ -1,4 +1,4 @@
-[tool.poetry]
+[project]
 name = "viewdom"
 description = "ViewDOM"
 dynamic = ["version"]
@@ -35,11 +35,10 @@ dependencies = [
     "pytest~=7.4.3",
     "sybil~=3.0.1",
     "coverage[toml]~=6.3",
-    "xdoctest[colors]~=0.15.10",
     "pytest-cov~=4.1.0",
-    "ruff~=0.1.6",
+    "ruff~=0.1.8",
     "ruff-lsp~=0.0.45",
-    "sphinx~=4.4.0",
+    "sphinx~=4.4.0"
 ]
 
 [tool.hatch.envs.pre-commit]
@@ -116,6 +115,7 @@ format = "ruff check --fix src/viewdom tests docs/conf.py && ruff format src/vie
 
 [tool.hatch.envs.pre-commit.scripts]
 run = "pre-commit run --all-files --show-diff-on-failure"
+install = "pre-commit install"
 
 [tool.hatch.envs.mypy.scripts]
 run = "mypy src/viewdom tests docs/conf.py"
