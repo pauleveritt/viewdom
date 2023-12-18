@@ -32,24 +32,15 @@ Request features on the [Issue Tracker](https://github.com/pauleveritt/viewdom/i
 
 ## How to set up your development environment
 
-You need Python 3.6+ and the following tools:
+You need Python 3.11+ and the following tools:
 
-- [Poetry](https://python-poetry.org/)
-- [Nox](https://nox.thea.codes/)
-- [nox-poetry](https://nox-poetry.readthedocs.io/)
-
-Install the package with development requirements:
-
-```shell
-$ poetry install
-```
+- [Hatch](https://hatch.pypa.io/latest/)
 
 You can now run an interactive Python session,
 or the command-line interface:
 
 ```shell
-$ poetry run python
-$ poetry run viewdom
+$ hatch shell
 ```
 
 ## How to test the project
@@ -57,24 +48,22 @@ $ poetry run viewdom
 Run the full test suite:
 
 ```shell
-$ nox
-```
-
-List the available Nox sessions:
-
-```shell
-$ nox --list-sessions
-```
-
-You can also run a specific Nox session.
-For example, invoke the unit test suite like this:
-
-```shell
-$ nox --session=tests
+$ hatch run test:run
 ```
 
 Unit tests are located in the `tests` directory,
 and are written using the [pytest](https://pytest.readthedocs.io/) testing framework.
+
+## How to set up your PyCharm environment
+
+Get test virtualenv interpreter path from hatch:
+
+```shell
+$ hatch env find test.py3.12
+```
+
+You should set up an existing virtualenv interpreter in PyCharm with the path from the previous command.
+[follow these instructions](https://www.jetbrains.com/help/pycharm/creating-virtual-environment.html) for Existing virtual environment
 
 ## How to submit changes
 
@@ -91,7 +80,7 @@ Feel free to submit early, though—we can always iterate on this.
 To run linting and code formatting checks before commiting your change, you can install pre-commit as a Git hook by running the following command:
 
 ```shell
-$ nox --session=pre-commit -- install
+$ hatch run pre-commit:install
 ```
 
 It is recommended to open an issue before starting work on anything.

@@ -1,12 +1,6 @@
 repos:
   - repo: local
     hooks:
-      - id: black
-        name: black
-        entry: black
-        language: system
-        types: [python]
-        require_serial: true
       - id: check-added-large-files
         name: Check for added large files
         entry: check-added-large-files
@@ -27,18 +21,6 @@ repos:
         language: system
         types: [text]
         stages: [commit, push, manual]
-      - id: flake8
-        name: flake8
-        entry: flake8
-        language: system
-        types: [python]
-        require_serial: true
-      - id: reorder-python-imports
-        name: Reorder python imports
-        entry: reorder-python-imports
-        language: system
-        types: [python]
-        args: [--application-directories=src]
       - id: trailing-whitespace
         name: Trim Trailing Whitespace
         entry: trailing-whitespace-fixer
@@ -49,3 +31,11 @@ repos:
     rev: v2.3.0
     hooks:
       - id: prettier
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: "v0.1.6"
+    hooks:
+      - id: ruff
+        files: "^src|^tests|^docs/conf.py"
+        args: [--fix]
+      - id: ruff-format
+        files: "^src|^tests|^docs/conf.py"

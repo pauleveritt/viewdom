@@ -97,7 +97,7 @@ def relaxed_call(
     # Props should include children, which come from "the system"
     if props is None:
         props = {}
-    full_props = props | dict(children=children)
+    full_props = props | {"children": children}
 
     vdom = None
     if registry:
