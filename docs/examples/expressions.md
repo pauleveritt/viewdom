@@ -24,16 +24,6 @@ start-at: def main
 ---
 ```
 
-## Python Operation
-
-The expression can do a bit more. For example, call a method on a string to uppercase it:
-
-```{literalinclude} ../../examples/expressions/python_operation/__init__.py
----
-start-at: def main
----
-```
-
 ## Call a Function
 
 But it's Python and f-strings-ish, so you can do even more.
