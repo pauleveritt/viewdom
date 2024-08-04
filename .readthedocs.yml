@@ -7,5 +7,3 @@ python:
   install:
     - requirements: docs/requirements.txt
     - path: .
-build:
-  image: testing
